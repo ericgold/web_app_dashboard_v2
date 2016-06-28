@@ -1,0 +1,12 @@
+$primary-color: #7379BD;
+$secondary-color: #83C891;
+$tertiary-color: #76B1BE;
+
+$gray: #B2B2B2;
+
+$primary-dark: darken($primary-color, 20%);
+$primary-light: darken($primary-color, 40%);
+
+$text-color-default: $gray;
+$text-color-link: $primary-light;
+
