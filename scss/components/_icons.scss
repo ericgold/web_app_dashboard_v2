@@ -1,0 +1,17 @@
+.icon {
+	display: block;
+	
+	.st0 {
+		fill:#FFFFFF;
+	}
+
+	width: 2em;
+}
+
+#settings-icon {
+	margin-right: auto;
+
+	@include mq(medium) {
+		margin-bottom: auto;
+	}
+}

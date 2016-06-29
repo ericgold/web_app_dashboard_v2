@@ -1,0 +1,7 @@
+header {
+	@include flexy(row);
+	height: 3em;
+	background-color: $primary-color;
+}
+
+

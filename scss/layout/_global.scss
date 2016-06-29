@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+}
+
+//contains all layout 
+
+.outer-container {
+	@include flexy(column);
+}
+
+//contains nav and widgets but not header
+
+.inner-container {
+	@include flexy(column);
+	height: 100%;
+
+	@include mq(medium) {
+		flex-direction: row;
+	}
+}
+
+//contains all widgets 
+
+.widget-container {
+	@include flexy(column);
+	height: 100%;
+	margin: 0;
+	flex-grow: 9;
+}
+
