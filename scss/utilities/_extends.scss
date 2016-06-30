@@ -1,3 +1,17 @@
 %centered {
 	margin: auto;
 }
+
+%round-photo {
+	border-radius: 50%;
+}
+
+%heading {
+	margin-right: auto;
+	color: $gray;
+	font-size: 0.5em;
+}
+
+%widget-spacing {
+	padding: 1em;
+}

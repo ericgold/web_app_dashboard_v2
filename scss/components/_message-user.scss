@@ -1,0 +1,13 @@
+#message-user {
+	@extend %widget-spacing;
+	
+	input[type="text"] {
+		display: block;
+		width: 100%;
+	}
+
+	textarea {
+		display: block;
+		width: 100%;
+	}
+}

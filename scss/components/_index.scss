@@ -8,4 +8,7 @@
 @import '_traffic-bar.scss';
 @import '_traffic-line.scss';
 
-
+.widget-heading {
+	@extend %heading;
+	text-transform: uppercase;
+}

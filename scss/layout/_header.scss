@@ -2,6 +2,40 @@ header {
 	@include flexy(row);
 	height: 3em;
 	background-color: $primary-color;
+	padding: 0 1em;
 }
 
+#app-name {
+	font-size: 1em;
+	color: $text-color-light;
+	margin: auto;
+	margin-left: 0;
 
+	span {
+		//add google font so this font-weight will be applied
+		font-weight: 100;
+	}
+}
+
+#bell-icon {
+	width: 2 * $icon-size / 3;
+	height: 2 * $icon-size /3;
+	margin: auto 1em;
+}
+
+//wraps .profile-photo and #profile-name
+#profile-box {
+	padding: auto;
+}
+
+#profile-photo {
+	@extend %round-photo;
+	display: inline-block;
+}
+
+#profile-name {
+	display: inline-block;
+	font-size: 0.66em;
+	color: $text-color-light;
+	
+}
