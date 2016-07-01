@@ -4,6 +4,16 @@
 	height: 4em;
 	width: 100%;
 	background-color: $primary-dark;
+	padding-top: 0.25em;
+
+	.svg-container {
+	@extend %svg-container;
+	margin: auto;
+
+		@include mq(medium) {
+			margin: 0.25em auto; 
+		}
+	}	
 
 	@include mq(medium) {
 		flex-direction: column;
@@ -12,8 +22,5 @@
 	}
 }
 
-.svg-container {
-	height: 3em;
-	width: 3em;
-}
+
 

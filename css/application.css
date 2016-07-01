@@ -9,6 +9,10 @@
 .widget-section-full, #message-user, #traffic-bar-box {
   padding: 1em; }
 
+header .svg-container, #main-nav .svg-container {
+  height: 3em;
+  width: 3em; }
+
 * {
   box-sizing: border-box; }
 
@@ -36,7 +40,8 @@ header {
   flex-direction: row;
   height: 3em;
   background-color: #7379BD;
-  padding: 0 1em; }
+  padding: 0 1em;
+  align-items: center; }
 
 #app-name {
   font-size: 1em;
@@ -49,10 +54,12 @@ header {
 #bell-icon {
   width: 1em;
   height: 1em;
-  margin: auto 1em; }
+  margin: 1em; }
 
 #profile-box {
-  padding: auto; }
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 #profile-photo {
   display: inline-block; }
@@ -68,16 +75,18 @@ header {
   justify-content: flex-start;
   height: 4em;
   width: 100%;
-  background-color: #414789; }
+  background-color: #4D4D71;
+  padding-top: 0.25em; }
+  #main-nav .svg-container {
+    margin: auto; }
+    @media (min-width: 768px) {
+      #main-nav .svg-container {
+        margin: 0.25em auto; } }
   @media (min-width: 768px) {
     #main-nav {
       flex-direction: column;
       height: 100vh;
       width: 4em; } }
-
-.svg-container {
-  height: 3em;
-  width: 3em; }
 
 .widget-section-full {
   display: flex;
@@ -92,24 +101,68 @@ header {
 .widget-section-half {
   width: 100%;
   margin: 0;
-  border: 1px solid #B2B2B2; }
+  border: 1px solid #f2f2f2; }
   @media (min-width: 768px) {
     .widget-section-half {
       width: 50%; } }
 
-#search,
-#alert {
+#subhead {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  height: 3em; }
+  height: 2.75em;
+  background-color: #f2f2f2;
+  padding: 0; }
+
+.tab {
+  height: 2.75em;
+  line-height: 2.75em;
+  background-color: #FFFFFF;
+  font-size: 1em;
+  color: #B2B2B2;
+  font-weight: lighter;
+  margin: 0;
+  margin-right: auto;
+  padding: 0 1em; }
 
 #search {
-  background-color: #B2B2B2; }
+  width: 50%;
+  max-width: 18em;
+  height: 1.75em;
+  margin: auto 1em;
+  border: 1px solid #B2B2B2;
+  border-radius: 4px; }
+
+#alert {
+  display: flex;
+  flex-direction: row;
+  height: 1.75em;
+  background-color: #7379BD;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 1em;
+  margin-right: 1em;
+  color: #FFFFFF;
+  border-radius: 4px; }
+  #alert h4 {
+    display: inline-block;
+    font-size: 0.6em; }
+  #alert p {
+    display: inline-block;
+    font-size: 0.6em;
+    font-weight: lighter;
+    margin-right: auto; }
+  #alert a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.75em;
+    color: #FFFFFF; }
 
 .icon {
   display: block;
   width: 1.5em;
   height: 1.5em;
-  margin: 1.25em; }
+  margin: 11px; }
   .icon .st0 {
     fill: #FFFFFF; }
 

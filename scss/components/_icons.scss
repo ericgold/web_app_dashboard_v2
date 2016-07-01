@@ -1,13 +1,12 @@
 .icon {
 	display: block;
+	width: $icon-size;
+	height: $icon-size;
+	margin: 11px;
 	
 	.st0 {
 		fill:#FFFFFF;
 	}
-
-	width: $icon-size;
-	height: $icon-size;
-	margin: 1.25em;
 }
 
 #settings-icon {

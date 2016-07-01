@@ -3,6 +3,11 @@ header {
 	height: 3em;
 	background-color: $primary-color;
 	padding: 0 1em;
+	align-items: center;
+
+	.svg-container {
+	@extend %svg-container;
+	}
 }
 
 #app-name {
@@ -17,15 +22,18 @@ header {
 	}
 }
 
+
+
 #bell-icon {
 	width: 2 * $icon-size / 3;
 	height: 2 * $icon-size /3;
-	margin: auto 1em;
+	margin: 1em;
 }
 
 //wraps .profile-photo and #profile-name
 #profile-box {
-	padding: auto;
+	@include flexy(row);
+	align-items: center;
 }
 
 #profile-photo {
@@ -36,6 +44,5 @@ header {
 #profile-name {
 	display: inline-block;
 	font-size: 0.66em;
-	color: $text-color-light;
-	
+	color: $text-color-light;	
 }
