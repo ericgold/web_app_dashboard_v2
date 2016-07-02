@@ -204,9 +204,20 @@ canvas {
     color: #B2B2B2;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.5em; }
+    font-size: 0.5em;
+    text-align: center;
+    height: 2em;
+    line-height: 1.5em;
+    width: 8em;
+    margin: 0;
+    padding: 0.25em;
+    border-radius: 10px; }
 
 .widget-heading {
   text-transform: uppercase; }
+
+#traffic-line-nav a.active {
+  background-color: #83C891;
+  color: #FFFFFF; }
 
 /*# sourceMappingURL=application.css.map */
