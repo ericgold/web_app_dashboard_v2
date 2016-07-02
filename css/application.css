@@ -6,7 +6,7 @@
   color: #B2B2B2;
   font-size: 0.5em; }
 
-.widget-section-full, #message-user, #traffic-bar-box {
+.widget-section-full, .widget-section-col, #message-user, #traffic-bar-box {
   padding: 1em; }
 
 header .svg-container, #main-nav .svg-container {
@@ -89,6 +89,8 @@ header {
       height: 100vh;
       width: 4em; } }
 
+/* container to wrap widget rows, allowing full width at small screens and 
+	side-by-side half-width at tablet size and up */
 .widget-section-full {
   display: flex;
   flex-direction: column;
@@ -99,6 +101,15 @@ header {
       display: flex;
       flex-direction: row; } }
 
+/* special case for traffic line, so it will be full width at all screen sizes 
+	and will not switch to row */
+.widget-section-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0; }
+
+/* container for widgets that take up half width at tablet size and up */
 .widget-section-half {
   width: 100%;
   margin: 0;

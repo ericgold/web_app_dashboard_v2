@@ -1,3 +1,6 @@
+/* container to wrap widget rows, allowing full width at small screens and 
+	side-by-side half-width at tablet size and up */
+
 .widget-section-full {
 	@include flexy(column);
 	@extend %widget-spacing;
@@ -8,6 +11,18 @@
 		@include flexy(row);
 	}
 }
+
+/* special case for traffic line, so it will be full width at all screen sizes 
+	and will not switch to row */
+
+.widget-section-col {
+	@include flexy(column);
+	@extend %widget-spacing;
+	width: 100%;
+	margin: 0;
+}
+
+/* container for widgets that take up half width at tablet size and up */
 
 .widget-section-half {
 	width: 100%;
