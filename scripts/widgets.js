@@ -7,3 +7,43 @@ Chart.defaults.global.defaultFontStyle = 'normal';
 Chart.defaults.global.responsive = true;
 Chart.defaults.global.responsiveAnimationDuration = 0;
 Chart.defaults.global.maintainAspectRatio = true;
+
+// TRAFFIC LINE WIDGET 
+
+var trafficLineWidget = document.getElementById("traffic-line");
+
+var trafficLineData = {
+	labels: ["16-22",
+			 "23-29", 
+			 "30-5", 
+			 "6-12", 
+			 "13-19", 
+			 "20-26", 
+			 "27-3", 
+			 "4-10", 
+			 "11-17", 
+			 "18-24", 
+			 "25-31"],
+	datasets: [
+		{
+			label: "Traffic",
+			fill: true,
+			lineTension: 0,
+			backgroundColor: '#E2E3F5',
+			borderWidth: 0,
+			pointBorderColor: '#7379BD',
+			pointBorderWidth: 2px,
+			pointRadius: 4px,
+			pointStyle: circle,
+			showLines: true
+			data: [750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250],
+		}
+	]
+};
+
+var trafficLine = new Chart(trafficLineWidget, {
+	type: 'line',
+	data: trafficLineData,
+	
+});
+
