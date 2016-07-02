@@ -7,6 +7,7 @@
 
 .outer-container {
 	@include flexy(column);
+	max-width: 1024px;
 }
 
 //contains nav and widgets but not header
