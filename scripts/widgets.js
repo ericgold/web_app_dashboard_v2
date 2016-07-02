@@ -32,11 +32,11 @@ var trafficLineData = {
 			backgroundColor: '#E2E3F5',
 			borderWidth: 0,
 			pointBorderColor: '#7379BD',
-			pointBorderWidth: 2px,
-			pointRadius: 4px,
-			pointStyle: circle,
-			showLines: true
-			data: [750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250],
+			pointBorderWidth: 2,
+			pointRadius: 4,
+			pointStyle: 'circle',
+			showLines: true,
+			data: [750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250]
 		}
 	]
 };
