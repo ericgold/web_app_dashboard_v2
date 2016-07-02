@@ -18,7 +18,8 @@ header .svg-container, #main-nav .svg-container {
 
 .outer-container {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  max-width: 1024px; }
 
 .inner-container {
   display: flex;
@@ -157,6 +158,9 @@ header {
     text-decoration: none;
     font-size: 0.75em;
     color: #FFFFFF; }
+
+canvas {
+  width: 100%; }
 
 .icon {
   display: block;
