@@ -10,9 +10,15 @@ Chart.defaults.global.maintainAspectRatio = true;
 
 // TRAFFIC LINE WIDGET 
 
+
+//move these defaults to widget branch if they work
+Chart.defaults.global.title.display = true;
+Chart.defaults.global.title.position = 'top';
+
 var trafficLineWidget = document.getElementById("traffic-line");
 
 var trafficLineData = {
+
 	labels: ["16-22",
 			 "23-29", 
 			 "30-5", 
@@ -26,7 +32,7 @@ var trafficLineData = {
 			 "25-31"],
 	datasets: [
 		{
-			label: "Traffic",
+			label: "label",
 			fill: true,
 			lineTension: 0,
 			backgroundColor: '#E2E3F5',
@@ -44,6 +50,13 @@ var trafficLineData = {
 var trafficLine = new Chart(trafficLineWidget, {
 	type: 'line',
 	data: trafficLineData,
+	options: {
+		title: {
+			display: true,
+			text: 'Traffic',
+			fullWidth: true
+		}
+	}
 	
 });
 
