@@ -13,7 +13,6 @@ Chart.defaults.global.maintainAspectRatio = true;
 
 var trafficDaily = document.getElementById('traffic-bar');
 
-
 var trafficDailyData = {
 		labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 		datasets: [ 
@@ -24,7 +23,18 @@ var trafficDailyData = {
 		]
 }
 
+var trafficDailyOptions = {
+	categoryPercentage: 0.5,
+	barPercentage: 1,
+	scales: {
+		gridLines: {
+			offsetGridLines: true
+		}
+	}
+}
+
 var trafficDailyChart = new Chart(trafficDaily, {
 	type: 'bar',
-	data: trafficDailyData
+	data: trafficDailyData,
+	options: trafficDailyOptions
 });
