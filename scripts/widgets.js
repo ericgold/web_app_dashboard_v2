@@ -15,7 +15,8 @@ var trafficLineWidget = document.getElementById("traffic-line");
 
 var trafficLineData = {
 
-	labels: ["16-22",
+	labels: ["0",
+			 "16-22",
 			 "23-29", 
 			 "30-5", 
 			 "6-12", 
@@ -32,22 +33,42 @@ var trafficLineData = {
 			fill: true,
 			lineTension: 0,
 			backgroundColor: '#E2E3F5',
-			borderWidth: 0,
+			borderWidth: 1,
+			borderColor: '#7379BD',
 			pointBorderColor: '#7379BD',
 			pointBorderWidth: 2,
 			pointRadius: 4,
+			pointHoverRadius: 10,
 			pointStyle: 'circle',
 			showLines: true,
-			data: [750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250]
+			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
 		}
 	]
 };
 
 var trafficLineOptions = {
-		
-	
-			
-		
+	scales: {
+		xAxes: [{
+			ticks: {
+				display: true,
+				min: 0
+			},
+			gridLines: {
+				offsetGridLines: true
+			}
+		}],
+		yAxes: [{
+			ticks: {
+				display: true,
+				min: 0,
+				stepSize: 500,
+				max: 2500
+			},
+			gridLines: {
+				offsetGridLines: true
+			}
+		}]
+	}	
 }
 
 var trafficLine = new Chart(trafficLineWidget, {
