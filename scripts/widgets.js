@@ -7,7 +7,7 @@ Chart.defaults.global.defaultFontStyle = 'normal';
 Chart.defaults.global.responsive = true;
 Chart.defaults.global.responsiveAnimationDuration = 0;
 Chart.defaults.global.maintainAspectRatio = true;
-
+Chart.defaults.global.legend.display = false;
 
 // TRAFFIC LINE WIDGET 
 
@@ -42,7 +42,8 @@ trafficNav.addEventListener("mouseover", prepActive);
 
 var trafficLineData = {
 
-	labels: ["0",
+	labels: [
+			 "0",
 			 "16-22",
 			 "23-29", 
 			 "30-5", 
@@ -56,16 +57,17 @@ var trafficLineData = {
 			 "25-31"],
 	datasets: [
 		{
-			label: "",
 			fill: true,
 			lineTension: 0,
 			backgroundColor: '#E2E3F5',
+			pointBackgroundColor: '#FFFFFF',
 			borderWidth: 1,
 			borderColor: '#7379BD',
 			pointBorderColor: '#7379BD',
 			pointBorderWidth: 2,
 			pointRadius: 4,
 			pointHoverRadius: 10,
+			pointHitRadius: 10,
 			pointStyle: 'circle',
 			showLines: true,
 			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
@@ -74,26 +76,34 @@ var trafficLineData = {
 };
 
 var trafficLineOptions = {
+	
 	scales: {
+		
 		xAxes: [{
 			ticks: {
 				display: true,
-				min: 0
+				//labelOffset: -35
+						
 			},
 			gridLines: {
-				offsetGridLines: true
+				drawTicks: false,
+				
 			}
+			
 		}],
+
 		yAxes: [{
 			ticks: {
 				display: true,
-				min: 0,
 				stepSize: 500,
-				max: 2500
+				max: 2500,
+				
 			},
 			gridLines: {
-				offsetGridLines: true
+				drawTicks: false,
+				
 			}
+			
 		}]
 	}	
 }
