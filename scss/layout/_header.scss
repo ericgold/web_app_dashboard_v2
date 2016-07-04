@@ -22,8 +22,6 @@ header {
 	}
 }
 
-
-
 #bell-icon {
 	width: 2 * $icon-size / 3;
 	height: 2 * $icon-size /3;
@@ -34,15 +32,20 @@ header {
 #profile-box {
 	@include flexy(row);
 	align-items: center;
+	border-left: 1px solid $gray-dark;
+	padding-left: 0.75em;
 }
 
 #profile-photo {
 	@extend %round-photo;
 	display: inline-block;
+	height: 1.5em;
+	width: 1.5em;
 }
 
 #profile-name {
 	display: inline-block;
-	font-size: 0.66em;
-	color: $text-color-light;	
+	font-size: 0.5em;
+	color: $gray-light;
+	margin-left: 0.6em;	
 }
