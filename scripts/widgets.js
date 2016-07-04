@@ -7,6 +7,7 @@ Chart.defaults.global.defaultFontStyle = 'normal';
 Chart.defaults.global.responsive = true;
 Chart.defaults.global.responsiveAnimationDuration = 0;
 Chart.defaults.global.maintainAspectRatio = true;
+Chart.defaults.global.legend.display = false;
 
 
 // Daily Traffic Widget (Bar Chart)
@@ -38,3 +39,4 @@ var trafficDailyChart = new Chart(trafficDaily, {
 	data: trafficDailyData,
 	options: trafficDailyOptions
 });
+
