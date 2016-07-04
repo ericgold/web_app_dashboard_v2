@@ -11,7 +11,34 @@ Chart.defaults.global.maintainAspectRatio = true;
 
 // TRAFFIC LINE WIDGET 
 
-var trafficLineWidget = document.getElementById("traffic-line");
+var trafficLineWidget = document.getElementById('traffic-line');
+
+var trafficLineButton = document.getElementsByClassName('traffic-line-button');
+var trafficNav = document.getElementById('traffic-line-nav');
+
+
+// Traffic Line Navigation
+
+function toggleActive() {
+	for (var i=0; i<trafficLineButton.length; i++){
+		if (trafficLineButton[i].classList.contains("active")) {
+			trafficLineButton[i].classList.remove("active");
+		}
+	}
+	this.classList.add("active");
+	
+}
+
+function prepActive() {
+	console.log('prepping');
+	for (var i=0; i<trafficLineButton.length; i++) {
+		trafficLineButton[i].addEventListener("click", toggleActive);
+	}
+}
+
+trafficNav.addEventListener("mouseover", prepActive);
+
+// Traffic Line Chart
 
 var trafficLineData = {
 
@@ -77,6 +104,8 @@ var trafficLine = new Chart(trafficLineWidget, {
 	options: trafficLineOptions
 	
 });
+
+
 
 
 

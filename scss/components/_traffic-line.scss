@@ -5,6 +5,9 @@
 	height: 1em;
 
 	button {
+		background-color: $text-color-light;
+		border: none;
+		outline: none;
 		color: $gray;
 		text-decoration: none;
 		font-weight: bold;
