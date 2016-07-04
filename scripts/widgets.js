@@ -52,9 +52,11 @@ var trafficLineData = {
 			 "20-26", 
 			 "27-3", 
 			 "4-10", 
-			 "11-17", 
-			 "18-24", 
-			 "25-31"],
+			 "11-17",
+			 "19-24", 
+			 "25-31"
+			 ],
+
 	datasets: [
 		{
 			fill: true,
@@ -81,14 +83,14 @@ var trafficLineOptions = {
 		
 		xAxes: [{
 			ticks: {
-				display: true,
+				display: true
 				//labelOffset: -35
 						
 			},
 			gridLines: {
-				drawTicks: false,
-				
+				drawTicks: false
 			}
+			
 			
 		}],
 
@@ -102,7 +104,10 @@ var trafficLineOptions = {
 			gridLines: {
 				drawTicks: false,
 				
-			}
+			},
+			
+
+			
 			
 		}]
 	}	
