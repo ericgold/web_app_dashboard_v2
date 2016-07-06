@@ -9,9 +9,18 @@
 .widget-section-full, .widget-section-col, #message-user, #traffic-bar-box {
   padding: 1em; }
 
-header .svg-container, #main-nav .svg-container {
+header .svg-container, #main-nav .svg-container, .social-stat-container .svg-container {
   height: 3em;
   width: 3em; }
+
+#twitter-icon,
+#facebook-icon,
+#google-icon {
+  height: 50px;
+  width: 50px;
+  background-color: #7379BD;
+  fill: white;
+  border-radius: 50%; }
 
 * {
   box-sizing: border-box; }
@@ -197,6 +206,36 @@ header {
   display: block;
   width: 100%; }
 
+.social-stat-container {
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 768px) {
+    .social-stat-container {
+      display: flex;
+      flex-direction: row; } }
+  .social-stat-container .svg-container {
+    margin: auto 1em auto 0; }
+
+.social-unit {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  border: 1px solid #B2B2B2;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  padding: 1em;
+  margin: 0.5em 1em; }
+
+.social-count-container h4 {
+  font-size: 0.75em;
+  color: #7379BD;
+  margin: 0; }
+.social-count-container p {
+  font-size: 2em;
+  color: #B2B2B2;
+  font-weight: lighter;
+  margin: 0; }
+
 #traffic-line-nav {
   display: flex;
   flex-direction: row;
@@ -210,6 +249,7 @@ header {
     font-size: 0.5em; }
 
 .widget-heading {
+  display: block;
   text-transform: uppercase;
   margin-top: auto;
   margin-bottom: auto;

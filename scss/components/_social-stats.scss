@@ -1,0 +1,49 @@
+.social-stat-container {
+	@include flexy(column);
+	
+
+	@include mq(medium) {
+		@include flexy(row);
+	}
+
+	.svg-container {
+		@extend %svg-container;
+		margin: auto 1em auto 0;
+	}
+
+}
+
+.social-unit {
+	@include flexy(row);
+	width: 90%;
+	border: 1px solid $gray;
+	border-radius: 3px;
+	background-color: $gray-light;
+	padding: 1em;
+	margin: 0.5em 1em;
+
+
+}
+
+.social-count-container {
+	h4 {
+		font-size: 0.75em;
+		color: $primary-color;
+		margin: 0;
+	}
+
+	p {
+		font-size: 2em;
+		color: $gray;
+		font-weight: lighter;
+		margin: 0;
+	}
+}
+
+#twitter-icon,
+#facebook-icon,
+#google-icon {
+	@extend %social-icon;
+}
+
+
