@@ -25,12 +25,27 @@ var trafficDailyData = {
 }
 
 var trafficDailyOptions = {
-	categoryPercentage: 0.5,
-	barPercentage: 1,
+	
 	scales: {
-		gridLines: {
-			offsetGridLines: true
-		}
+		xAxes: [{
+			categoryPercentage: 1,
+			barPercentage: 0.4,
+			gridLines: {
+				offsetGridLines: true,
+				drawTicks: false
+			}
+		}],
+		yAxes: [{
+			type: 'linear',
+			gridLines: {
+				offsetGridLines: true,
+				drawTicks: false
+			},
+			ticks: {
+				beginAtZero: false,
+				stepSize: 50,
+			}
+		}]
 	}
 }
 
