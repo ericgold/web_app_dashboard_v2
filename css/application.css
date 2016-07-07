@@ -6,12 +6,19 @@
   color: #B2B2B2;
   font-size: 0.5em; }
 
-.widget-section-full, .widget-section-col, #message-user, #traffic-bar-box {
+.widget-section-full, .widget-section-col, #traffic-bar-box {
   padding: 1em; }
 
 header .svg-container, #main-nav .svg-container {
   height: 3em;
   width: 3em; }
+
+#user-input, #user-message, #message-button {
+  display: block;
+  width: 100%;
+  margin: 1.5em 0;
+  border-radius: 3px;
+  outline: none; }
 
 * {
   box-sizing: border-box; }
@@ -190,12 +197,27 @@ header {
     #settings-icon {
       margin-bottom: auto; } }
 
-#message-user input[type="text"] {
-  display: block;
-  width: 100%; }
-#message-user textarea {
-  display: block;
-  width: 100%; }
+#user-input {
+  height: 4em;
+  border: 1px solid #B2B2B2;
+  background-color: #f2f2f2;
+  color: #B2B2B2;
+  font-size: 0.5em; }
+
+#user-message {
+  height: 12em;
+  border: 1px solid #B2B2B2;
+  background-color: #f2f2f2;
+  color: #B2B2B2;
+  font-size: 0.5em; }
+
+#message-button {
+  height: 4em;
+  background-color: #7379BD;
+  color: #FFFFFF;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  border: none; }
 
 #traffic-line-nav {
   display: flex;
