@@ -1,4 +1,4 @@
-#profile-photo {
+#profile-photo, #new-members img, #recent-activity img {
   border-radius: 50%; }
 
 .widget-heading {
@@ -196,6 +196,83 @@ header {
 #message-user textarea {
   display: block;
   width: 100%; }
+
+#new-members img {
+  height: 2em;
+  width: 2em;
+  margin: auto 0.5em 0.25em 0; }
+
+.member-box {
+  display: flex;
+  flex-direction: row;
+  height: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #f2f2f2; }
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto; }
+
+.member-name {
+  color: #B2B2B2;
+  font-size: 0.5em;
+  margin: 0.75em 0 0 0; }
+
+.member-email {
+  color: #E2E3F5;
+  font-size: 0.5em;
+  margin-bottom: 0 0 0.75em 0;
+  text-decoration: none; }
+
+.member-date {
+  color: #B2B2B2;
+  font-size: 0.5em;
+  margin: auto 0; }
+
+#recent-activity img {
+  height: 2em;
+  width: 2em;
+  margin: auto 0.5em 0.25em 0; }
+
+.activity-box {
+  display: flex;
+  flex-direction: row;
+  height: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #f2f2f2; }
+
+.member-activity {
+  display: flex;
+  flex-direction: column; }
+
+.member-name-action {
+  display: inline;
+  margin: 0;
+  color: #B2B2B2;
+  font-size: 0.5em; }
+
+.member-action {
+  display: inline;
+  color: #B2B2B2;
+  font-size: 0.5em;
+  margin: 0; }
+
+.member-action-time {
+  color: #B2B2B2;
+  font-size: 0.5em;
+  margin: 0; }
+
+.activity-button {
+  height: 1em;
+  width: 1em;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  color: #7379BD;
+  margin: auto 0.5em auto auto; }
 
 #traffic-line-nav {
   display: flex;
