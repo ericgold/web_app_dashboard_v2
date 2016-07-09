@@ -32,26 +32,84 @@ function toggleActive(btn) {
 	btn.classList.add("active");
 	
 }
-/*
-function prepActive() {
-	console.log('prepping');
-	for (var i=0; i<trafficLineButton.length; i++) {
-		trafficLineButton[i].addEventListener("click", toggleActive);
-	}
-}
-*/
-
-//trafficNav.addEventListener("mouseover", prepActive);
-
 
 
 // Traffic Line Chart
 
+
 // Traffic Line Data
 
-var trafficLineDataHourly = {}
+var trafficLineDataHourly = {
+	labels: [
+			 "12am",
+			 "2am",
+			 "4am", 
+			 "6am", 
+			 "8am", 
+			 "10am", 
+			 "12pm", 
+			 "2pm", 
+			 "4pm", 
+			 "6pm",
+			 "8pm", 
+			 "10pm"
+			 ],
 
-var trafficLineDataDaily = {}
+	datasets: [
+		{
+			fill: true,
+			lineTension: 0,
+			backgroundColor: '#E2E3F5',
+			pointBackgroundColor: '#FFFFFF',
+			borderWidth: 1,
+			borderColor: '#7379BD',
+			pointBorderColor: '#7379BD',
+			pointBorderWidth: 2,
+			pointRadius: 4,
+			pointHoverRadius: 10,
+			pointHitRadius: 10,
+			pointStyle: 'circle',
+			showLines: true,	
+			data: [0, 10, 10, 20, 15, 80, 120, 200, 150, 250, 180, 100, 60]
+		}
+	]
+}
+
+var trafficLineDataDaily = {
+	labels: [
+			 "0",
+			 "16-22",
+			 "23-29", 
+			 "30-5", 
+			 "6-12", 
+			 "13-19", 
+			 "20-26", 
+			 "27-3", 
+			 "4-10", 
+			 "11-17",
+			 "19-24", 
+			 "25-31"
+			 ],
+
+	datasets: [
+		{
+			fill: true,
+			lineTension: 0,
+			backgroundColor: '#E2E3F5',
+			pointBackgroundColor: '#FFFFFF',
+			borderWidth: 1,
+			borderColor: '#7379BD',
+			pointBorderColor: '#7379BD',
+			pointBorderWidth: 2,
+			pointRadius: 4,
+			pointHoverRadius: 10,
+			pointHitRadius: 10,
+			pointStyle: 'circle',
+			showLines: true,	
+			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
+		}
+	]
+}
 
 var trafficLineDataWeekly = {
 
@@ -84,20 +142,76 @@ var trafficLineDataWeekly = {
 			pointHoverRadius: 10,
 			pointHitRadius: 10,
 			pointStyle: 'circle',
-			showLines: true,
+			showLines: true,	
 			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
 		}
 	]
 }
 
 var trafficLineDataMonthly = {
+	labels: [
+			 "0",
+			 "16-22",
+			 "23-29", 
+			 "30-5", 
+			 "6-12", 
+			 "13-19", 
+			 "20-26", 
+			 "27-3", 
+			 "4-10", 
+			 "11-17",
+			 "19-24", 
+			 "25-31"
+			 ],
 
+	datasets: [
+		{
+			fill: true,
+			lineTension: 0,
+			backgroundColor: '#E2E3F5',
+			pointBackgroundColor: '#FFFFFF',
+			borderWidth: 1,
+			borderColor: '#7379BD',
+			pointBorderColor: '#7379BD',
+			pointBorderWidth: 2,
+			pointRadius: 4,
+			pointHoverRadius: 10,
+			pointHitRadius: 10,
+			pointStyle: 'circle',
+			showLines: true,	
+			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
+		}
+	]
 }
 
 
 // Traffic Line Options
 
-var trafficLineOptionsHourly = {}
+var trafficLineOptionsHourly = {
+	scales: {
+		
+		xAxes: [{
+			ticks: {
+				display: true			
+			},
+			gridLines: {
+				drawTicks: false
+			}	
+		}],
+
+		yAxes: [{
+			ticks: {
+				display: true,
+				stepSize: 50,
+				max: 250,		
+			},
+			gridLines: {
+				drawTicks: false,
+			}		
+		}]
+	}
+}
+
 var trafficLineOptionsDaily = {}
 
 var trafficLineOptionsWeekly = {
@@ -105,51 +219,45 @@ var trafficLineOptionsWeekly = {
 		
 		xAxes: [{
 			ticks: {
-				display: true
-				//labelOffset: -35
-						
+				display: true			
 			},
 			gridLines: {
 				drawTicks: false
-			}
-			
-			
+			}	
 		}],
 
 		yAxes: [{
 			ticks: {
 				display: true,
 				stepSize: 500,
-				max: 2500,
-				
+				max: 2500,		
 			},
 			gridLines: {
 				drawTicks: false,
-				
-			}	
-			
+			}		
 		}]
 	}	
 }
 
 var trafficLineOptionsMonthly = {}
 
-// Create the traffic line chart with weekly data and options
-
-var trafficLine = new Chart(trafficLineWidget, {
-	type: 'line',
-	data: trafficLineDataWeekly,
-	options: trafficLineOptionsWeekly
-	
-});
-
 
 // Functions and event listeners for refreshing the chart
 
 function hourlyTraffic() {
+	//highlight Hourly button
 	toggleActive(hourlyButton);
+
+	//swap data object in trafficLine chart (doesn't work)
 	trafficLine.data = trafficLineDataHourly;
-	//trafficLine.update();
+	console.log(trafficLine.data);
+	
+	//swap options object in trafficLine chart (does work?)
+	trafficLine.options = trafficLineOptionsHourly;
+	console.log(trafficLine.options);
+	
+	//redraw chart with new data
+	trafficLine.update();
 }
 
 function dailyTraffic() {
@@ -166,6 +274,16 @@ function monthlyTraffic() {
 	toggleActive(monthlyButton);
 	trafficLine.data = trafficLineDataMonthly;
 }
+
+// Create the traffic line chart with weekly data and options
+
+var trafficLine = new Chart(trafficLineWidget, {
+	type: 'line',
+	data: trafficLineDataWeekly,
+	options: trafficLineOptionsWeekly
+});
+
+// Traffic Line Chart navigation event listeners
 
 hourlyButton.addEventListener("click", hourlyTraffic);
 dailyButton.addEventListener("click", dailyTraffic);
