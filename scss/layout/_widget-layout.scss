@@ -3,10 +3,8 @@
 
 .widget-section-full {
 	@include flexy(column);
-	@extend %widget-spacing;
 	width: 100%;
 	margin: 0;
-
 	@include mq(medium) {
 		@include flexy(row);
 	}
@@ -17,7 +15,6 @@
 
 .widget-section-col {
 	@include flexy(column);
-	@extend %widget-spacing;
 	width: 100%;
 	margin: 0;
 }
