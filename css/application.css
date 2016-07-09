@@ -6,11 +6,7 @@
   color: #B2B2B2;
   font-size: 0.5em; }
 
-<<<<<<< HEAD
-#message-user, #traffic-bar-box, #traffic-line-nav {
-=======
-.widget-section-full, .widget-section-col, #message-user, #traffic-bar-box {
->>>>>>> parent of 39a15f5... update from widgets
+.widget-section-full, .widget-section-col, #message-user, #traffic-bar-box, #traffic-line-nav {
   padding: 1em; }
 
 header .svg-container, #main-nav .svg-container {
