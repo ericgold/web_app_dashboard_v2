@@ -3,6 +3,7 @@
 
 .widget-section-full {
 	@include flexy(column);
+	@extend %widget-spacing;
 	width: 100%;
 	margin: 0;
 
@@ -16,6 +17,7 @@
 
 .widget-section-col {
 	@include flexy(column);
+	@extend %widget-spacing;
 	width: 100%;
 	margin: 0;
 }
@@ -95,5 +97,9 @@
 		margin: auto 0.5em auto 0;
 		
 	}
+}
+
+canvas {
+	width: 100%;
 }
 

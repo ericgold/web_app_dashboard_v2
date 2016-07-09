@@ -8,7 +8,6 @@ Chart.defaults.global.responsive = true;
 Chart.defaults.global.responsiveAnimationDuration = 0;
 Chart.defaults.global.maintainAspectRatio = true;
 Chart.defaults.global.legend.display = false;
-<<<<<<< HEAD
 
 // TRAFFIC LINE WIDGET 
 
@@ -292,5 +291,3 @@ weeklyButton.addEventListener("click", weeklyTraffic);
 monthlyButton.addEventListener("click", monthlyTraffic);
 
 
-=======
->>>>>>> widgets

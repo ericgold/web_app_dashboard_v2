@@ -6,7 +6,11 @@
   color: #B2B2B2;
   font-size: 0.5em; }
 
+<<<<<<< HEAD
 #message-user, #traffic-bar-box, #traffic-line-nav {
+=======
+.widget-section-full, .widget-section-col, #message-user, #traffic-bar-box {
+>>>>>>> parent of 39a15f5... update from widgets
   padding: 1em; }
 
 header .svg-container, #main-nav .svg-container {
@@ -176,6 +180,9 @@ header {
     color: #FFFFFF;
     margin: auto 0.5em auto 0; }
 
+canvas {
+  width: 100%; }
+
 .icon {
   display: block;
   width: 1.5em;
@@ -204,10 +211,20 @@ header {
   width: 100%;
   height: 1em; }
   #traffic-line-nav button {
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
     color: #B2B2B2;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.5em; }
+    font-size: 0.5em;
+    text-align: center;
+    height: 2em;
+    line-height: 1.5em;
+    width: 8em;
+    margin: 0;
+    padding: 0.25em;
+    border-radius: 10px; }
 
 .widget-heading {
   text-transform: uppercase;
@@ -215,5 +232,9 @@ header {
   margin-bottom: auto;
   margin-left: 0;
   margin-right: auto; }
+
+#traffic-line-nav button.active {
+  background-color: #83C891;
+  color: #FFFFFF; }
 
 /*# sourceMappingURL=application.css.map */
