@@ -16,31 +16,44 @@ var trafficLineWidget = document.getElementById('traffic-line');
 var trafficLineButton = document.getElementsByClassName('traffic-line-button');
 var trafficNav = document.getElementById('traffic-line-nav');
 
+var hourlyButton = document.getElementById('hourly-button');
+var dailyButton = document.getElementById('daily-button');
+var weeklyButton = document.getElementById('weekly-button');
+var monthlyButton = document.getElementById('monthly-button');
 
 // Traffic Line Navigation
 
-function toggleActive() {
+function toggleActive(btn) {
 	for (var i=0; i<trafficLineButton.length; i++){
 		if (trafficLineButton[i].classList.contains("active")) {
 			trafficLineButton[i].classList.remove("active");
 		}
 	}
-	this.classList.add("active");
+	btn.classList.add("active");
 	
 }
-
+/*
 function prepActive() {
 	console.log('prepping');
 	for (var i=0; i<trafficLineButton.length; i++) {
 		trafficLineButton[i].addEventListener("click", toggleActive);
 	}
 }
+*/
 
-trafficNav.addEventListener("mouseover", prepActive);
+//trafficNav.addEventListener("mouseover", prepActive);
+
+
 
 // Traffic Line Chart
 
-var trafficLineData = {
+// Traffic Line Data
+
+var trafficLineDataHourly = {}
+
+var trafficLineDataDaily = {}
+
+var trafficLineDataWeekly = {
 
 	labels: [
 			 "0",
@@ -75,10 +88,19 @@ var trafficLineData = {
 			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
 		}
 	]
-};
+}
 
-var trafficLineOptions = {
-	
+var trafficLineDataMonthly = {
+
+}
+
+
+// Traffic Line Options
+
+var trafficLineOptionsHourly = {}
+var trafficLineOptionsDaily = {}
+
+var trafficLineOptionsWeekly = {
 	scales: {
 		
 		xAxes: [{
@@ -104,23 +126,50 @@ var trafficLineOptions = {
 			gridLines: {
 				drawTicks: false,
 				
-			},
-			
-
-			
+			}	
 			
 		}]
 	}	
 }
 
+var trafficLineOptionsMonthly = {}
+
+// Create the traffic line chart with weekly data and options
+
 var trafficLine = new Chart(trafficLineWidget, {
 	type: 'line',
-	data: trafficLineData,
-	options: trafficLineOptions
+	data: trafficLineDataWeekly,
+	options: trafficLineOptionsWeekly
 	
 });
 
 
+// Functions and event listeners for refreshing the chart
 
+function hourlyTraffic() {
+	toggleActive(hourlyButton);
+	trafficLine.data = trafficLineDataHourly;
+	//trafficLine.update();
+}
+
+function dailyTraffic() {
+	toggleActive(dailyButton);
+	trafficLine.data = trafficLineDataDaily;
+}
+
+function weeklyTraffic() {
+	toggleActive(weeklyButton);
+	trafficLine.data = trafficLineDataWeekly;
+}
+
+function monthlyTraffic() {
+	toggleActive(monthlyButton);
+	trafficLine.data = trafficLineDataMonthly;
+}
+
+hourlyButton.addEventListener("click", hourlyTraffic);
+dailyButton.addEventListener("click", dailyTraffic);
+weeklyButton.addEventListener("click", weeklyTraffic);
+monthlyButton.addEventListener("click", monthlyTraffic);
 
 
