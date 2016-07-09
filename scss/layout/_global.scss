@@ -8,9 +8,11 @@
 .outer-container {
 	@include flexy(column);
 	max-width: 1024px;
+	margin: auto;
 }
 
-//contains nav and widgets but not header
+//contains nav and widgets but not header;
+//allows horizontal nav bar on mobile, vertical at medium break and up
 
 .inner-container {
 	@include flexy(column);
