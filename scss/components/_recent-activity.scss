@@ -1,4 +1,6 @@
 #recent-activity {
+	padding: 1em;
+
 	img {
 		@extend %round-photo;
 		height: 2em;
@@ -13,10 +15,6 @@
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 	border-bottom: 1px solid $gray-light;
-}
-
-.member-activity {
-	@include flexy(column);
 }
 
 .member-name-action {

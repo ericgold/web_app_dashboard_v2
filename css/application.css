@@ -197,10 +197,12 @@ header {
   display: block;
   width: 100%; }
 
-#new-members img {
-  height: 2em;
-  width: 2em;
-  margin: auto 0.5em 0.25em 0; }
+#new-members {
+  padding: 1em; }
+  #new-members img {
+    height: 2em;
+    width: 2em;
+    margin: auto 0.5em 0.25em 0; }
 
 .member-box {
   display: flex;
@@ -231,10 +233,12 @@ header {
   font-size: 0.5em;
   margin: auto 0; }
 
-#recent-activity img {
-  height: 2em;
-  width: 2em;
-  margin: auto 0.5em 0.25em 0; }
+#recent-activity {
+  padding: 1em; }
+  #recent-activity img {
+    height: 2em;
+    width: 2em;
+    margin: auto 0.5em 0.25em 0; }
 
 .activity-box {
   display: flex;
@@ -243,10 +247,6 @@ header {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   border-bottom: 1px solid #f2f2f2; }
-
-.member-activity {
-  display: flex;
-  flex-direction: column; }
 
 .member-name-action {
   display: inline;
