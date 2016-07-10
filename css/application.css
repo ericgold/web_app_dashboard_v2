@@ -2,11 +2,11 @@
   border-radius: 50%; }
 
 .widget-heading {
-  margin-right: auto;
+  margin: 0.5em auto 0.5em 0.5em;
   color: #B2B2B2;
   font-size: 0.5em; }
 
-.widget-section-full, #message-user, #traffic-bar-box {
+#message-user, #traffic-bar-box {
   padding: 1em; }
 
 header .svg-container, #main-nav .svg-container {
@@ -18,7 +18,8 @@ header .svg-container, #main-nav .svg-container {
 
 .outer-container {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  max-width: 1024px; }
 
 .inner-container {
   display: flex;
