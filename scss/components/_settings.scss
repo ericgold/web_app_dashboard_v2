@@ -1,0 +1,45 @@
+#settings {
+	padding: 1em;
+}
+
+.switch-ios.switch-light {
+	width: 4em;
+}
+
+
+.switch-ios.switch-light input:checked ~ span a {
+	border-color: $primary-color;
+}
+
+.switch-ios.switch-light input:checked ~ span {
+    border-color: $primary-color;
+    box-shadow: inset 0 0 0 30px $primary-color; 
+}
+
+#timezone {
+	display: block;
+	width: 100%;
+	background-color: $gray-light;
+}
+
+#save-settings-button,
+#cancel-settings-button {
+	display: inline-block;
+	margin: 0.5em;
+	width: 45%;
+	padding: 1em;
+	font-size: 0.5em;
+	color: $text-color-light;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 3px;
+}
+
+#save-settings-button {
+	background-color: $primary-color;
+}
+
+#cancel-settings-button {
+	background-color: $gray;
+}
+

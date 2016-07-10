@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
       	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css">
+      	<link rel="stylesheet" type="text/css" href="css/toggle-switch/toggle-switch.css">
       	<link href="css/application.css" rel="stylesheet" type="text/css"/>
       	<meta name="viewport" content="width=device-width, initial-scale=1"/>
       <title>TrapApp</title>
@@ -146,13 +147,34 @@
 							<div class="widget-section-half">
 								<div id="settings">
 									<h3 class="widget-heading">Settings</h3>
-									<label></label>
-									<div></div>
-									<label></label>
-									<div></div>
-									<select></select>
-									<button></button>
-									<button></button>
+									<label class="switch-light switch-ios">
+										<input type="checkbox">
+										<strong>
+											Send Email Notifications
+										</strong>
+										<span aria-hidden="true">
+											<span>Off</span>
+											<span>On</span>
+											<a></a>
+										</span>
+									</label>
+									
+									<label class="switch-light switch-ios">
+										<input type="checkbox">
+										<strong>
+											Set Profile to Public
+										</strong>
+										<span aria-hidden="true">
+											<span>Off</span>
+											<span>On</span>
+											<a></a>
+										</span>
+
+									</label>
+									
+									<select id="timezone"></select>
+									<button id="save-settings-button">Save</button>
+									<button id="cancel-settings-button">Cancel</button>
 								</div>	
 							</div>
 						</div>

@@ -197,6 +197,42 @@ header {
   display: block;
   width: 100%; }
 
+#settings {
+  padding: 1em; }
+
+.switch-ios.switch-light {
+  width: 4em; }
+
+.switch-ios.switch-light input:checked ~ span a {
+  border-color: #7379BD; }
+
+.switch-ios.switch-light input:checked ~ span {
+  border-color: #7379BD;
+  box-shadow: inset 0 0 0 30px #7379BD; }
+
+#timezone {
+  display: block;
+  width: 100%;
+  background-color: #f2f2f2; }
+
+#save-settings-button,
+#cancel-settings-button {
+  display: inline-block;
+  margin: 0.5em;
+  width: 45%;
+  padding: 1em;
+  font-size: 0.5em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px; }
+
+#save-settings-button {
+  background-color: #7379BD; }
+
+#cancel-settings-button {
+  background-color: #B2B2B2; }
+
 #traffic-line-nav {
   display: flex;
   flex-direction: row;
