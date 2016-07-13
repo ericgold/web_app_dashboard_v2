@@ -16,17 +16,19 @@ var mobileUsers = document.getElementById('mobile-users');
 
 var mobileUsersData = {
 	labels: [
-		"Phones",
+		"Desktop",
 		"Tablets",
-		"Desktop"
+		"Phones",
+		"Other"
 	],
 	datasets: [
 		{
-			data: [150, 70, 50],
+			data: [150, 70, 50, 20],
 			backgroundColor: [
 				"#7379BD",
 				"#83C891",
-				"#76B1BE"
+				"#76B1BE",
+				"#4D4D71"
 			]
 		}
 	]
