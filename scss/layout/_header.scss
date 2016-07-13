@@ -20,13 +20,25 @@ header {
 		//add google font so this font-weight will be applied
 		font-weight: 100;
 	}
+
 }
 
 #bell-icon {
 	width: 2 * $icon-size / 3;
 	height: 2 * $icon-size /3;
-	margin: 1em;
+	margin: 1em;	
+
+/* 
+	&:after {
+		content: "•";
+		color: $tertiary-color; 
+	}
+*/
 }
+
+
+
+
 
 //wraps .profile-photo and #profile-name
 #profile-box {
