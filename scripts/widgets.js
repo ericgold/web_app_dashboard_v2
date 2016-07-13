@@ -18,16 +18,19 @@ var trafficDailyData = {
 		labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 		datasets: [ 
 			{
+				label: 'Desktop',
 				backgroundColor: '#7379BD',
 				data: [75, 100, 175, 125, 225, 200, 100],
 			},
 
 			{
+				label: 'Tablets',
 				backgroundColor: '#83C891',
 				data: [60, 80, 120, 70, 180, 150, 70],
 			},
 			
 			{
+				label: 'Phones',
 				backgroundColor: '#76B1BE',
 				data: [80, 20, 40, 80, 80, 70, 90],
 			}
@@ -36,7 +39,12 @@ var trafficDailyData = {
 }
 
 var trafficDailyOptions = {
-
+	legend: {
+		display: true,
+		position: 'bottom',
+	},
+		
+	
 	scales: {
 		xAxes: [{
 			categoryPercentage: 0.8,
