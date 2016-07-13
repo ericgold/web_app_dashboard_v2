@@ -20,16 +20,27 @@ var trafficDailyData = {
 			{
 				backgroundColor: '#7379BD',
 				data: [75, 100, 175, 125, 225, 200, 100],
+			},
+
+			{
+				backgroundColor: '#83C891',
+				data: [60, 80, 120, 70, 180, 150, 70],
+			},
+			
+			{
+				backgroundColor: '#76B1BE',
+				data: [80, 20, 40, 80, 80, 70, 90],
 			}
+
 		]
 }
 
 var trafficDailyOptions = {
-	
+
 	scales: {
 		xAxes: [{
-			categoryPercentage: 1,
-			barPercentage: 0.4,
+			categoryPercentage: 0.8,
+			barPercentage: 0.8,
 			gridLines: {
 				offsetGridLines: true,
 				drawTicks: false
