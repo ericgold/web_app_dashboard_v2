@@ -15,7 +15,10 @@ header .svg-container, #main-nav .svg-container, .social-stat-container .svg-con
 
 #twitter-icon,
 #facebook-icon,
-#google-icon {
+#google-icon,
+#linkedin-icon,
+#instagram-icon,
+#codepen-icon {
   background-color: #7379BD;
   fill: white; }
 
@@ -205,23 +208,30 @@ header {
 
 .social-stat-container {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto; }
+  .social-stat-container .svg-container {
+    margin: auto auto auto 1em; }
   @media (min-width: 768px) {
     .social-stat-container {
       display: flex;
-      flex-direction: row; } }
-  .social-stat-container .svg-container {
-    margin: auto 1em auto 0; }
+      flex-direction: row;
+      flex-wrap: wrap; } }
 
 .social-unit {
   display: flex;
   flex-direction: row;
   width: 90%;
+  max-width: 300px;
   border: 1px solid #B2B2B2;
   border-radius: 3px;
   background-color: #f2f2f2;
   padding: 1em;
   margin: 0.5em 1em; }
+  @media (min-width: 768px) {
+    .social-unit {
+      width: 30%; } }
 
 .social-count-container h4 {
   font-size: 0.75em;

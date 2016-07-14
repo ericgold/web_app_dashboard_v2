@@ -1,14 +1,16 @@
 .social-stat-container {
 	@include flexy(column);
-	
+	justify-content: space-around;
+	margin: auto;
+	.svg-container {
+		@extend %svg-container;
+		margin: auto auto auto 1em;
+	}
 
 	@include mq(medium) {
 		@include flexy(row);
-	}
-
-	.svg-container {
-		@extend %svg-container;
-		margin: auto 1em auto 0;
+		flex-wrap: wrap;
+		
 	}
 
 }
@@ -16,11 +18,18 @@
 .social-unit {
 	@include flexy(row);
 	width: 90%;
+	max-width: 300px;
 	border: 1px solid $gray;
 	border-radius: 3px;
 	background-color: $gray-light;
 	padding: 1em;
 	margin: 0.5em 1em;
+
+	@include mq(medium) {
+		width: 30%;
+	}
+
+	
 }
 
 .social-count-container {
@@ -42,9 +51,11 @@
 
 #twitter-icon,
 #facebook-icon,
-#google-icon {
+#google-icon,
+#linkedin-icon,
+#instagram-icon,
+#codepen-icon {
 	@extend %social-icon;
-
 }
 
 
