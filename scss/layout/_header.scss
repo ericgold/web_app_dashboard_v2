@@ -1,4 +1,4 @@
-header {
+#main-header {
 	@include flexy(row);
 	height: 3em;
 	background-color: $primary-color;
@@ -36,8 +36,33 @@ header {
 */
 }
 
+// Alert dropdown container for bell icon click
+#alert-div {
+	@include flexy(column);
+	position: relative;
+	top: 3em;
+	right: -3em;
+	z-index: 10;
+	width: 35%;
+	padding: 0.5em;
 
+	@include mq(medium) {
+		width: 25%;
+	}
+	@include mq(large) {
+		width: 20%;
+	}
+}
 
+// Container class for individual alerts within #alert-div
+.alert-box {
+	//width: 90%;
+	background-color: $primary-color;
+	color: $text-color-light;
+	font-size: 0.75em;
+	padding: 0.5em;
+	border-bottom: 1px solid $text-color-light;
+}
 
 
 //wraps .profile-photo and #profile-name

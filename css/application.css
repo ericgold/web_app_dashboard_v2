@@ -10,7 +10,7 @@
 #message-user, #traffic-bar-box {
   padding: 1em; }
 
-header .svg-container, #main-nav .svg-container {
+#main-header .svg-container, #main-nav .svg-container {
   height: 3em;
   width: 3em; }
 
@@ -38,7 +38,7 @@ header .svg-container, #main-nav .svg-container {
   margin: 0;
   width: 100%; }
 
-header {
+#main-header {
   display: flex;
   flex-direction: row;
   height: 3em;
@@ -64,6 +64,29 @@ header {
   		color: $tertiary-color; 
   	}
   */ }
+
+#alert-div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 3em;
+  right: -3em;
+  z-index: 10;
+  width: 35%;
+  padding: 0.5em; }
+  @media (min-width: 768px) {
+    #alert-div {
+      width: 25%; } }
+  @media (min-width: 1024px) {
+    #alert-div {
+      width: 20%; } }
+
+.alert-box {
+  background-color: #7379BD;
+  color: #FFFFFF;
+  font-size: 0.75em;
+  padding: 0.5em;
+  border-bottom: 1px solid #FFFFFF; }
 
 #profile-box {
   display: flex;
