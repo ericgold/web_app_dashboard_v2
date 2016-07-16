@@ -9,7 +9,38 @@ Chart.defaults.global.responsiveAnimationDuration = 0;
 Chart.defaults.global.maintainAspectRatio = true;
 Chart.defaults.global.legend.display = false;
 
+// Main Navigation
+var navButton = document.getElementsByClassName("nav-icon");
+var dashboardIcon = document.getElementById("dashboard-icon");
+var membersIcon = document.getElementById("members-icon");
+var visitsIcon = document.getElementById("visits-icon");
+var settingsIcon = document.getElementById("settings-icon");
 
+
+
+function toggleNavActive() {
+	
+	for (var i=0; i<navButton.length; i++){
+		if (navButton[i].classList.contains("nav-icon-active")) {
+			navButton[i].classList.remove("nav-icon-active");
+		}
+	}
+
+	for (var i=0; i<navButton.length; i++){
+		if (navButton[i].parentNode.classList.contains("nav-container-active")) {
+			navButton[i].parentNode.classList.remove("nav-container-active");
+		}
+	}
+	this.classList.add("nav-icon-active");
+	this.parentNode.classList.add("nav-container-active");
+	
+	
+}
+
+dashboardIcon.addEventListener("click", toggleNavActive);
+membersIcon.addEventListener("click", toggleNavActive);
+visitsIcon.addEventListener("click", toggleNavActive);
+settingsIcon.addEventListener("click", toggleNavActive);
 
 // *** Alert Display ***
 
