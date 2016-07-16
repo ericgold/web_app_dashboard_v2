@@ -10,7 +10,7 @@
 #message-user, #traffic-bar-box {
   padding: 1em; }
 
-#main-header .svg-container, #main-nav .svg-container {
+#bell-container, #main-nav .svg-container {
   height: 3em;
   width: 3em; }
 
@@ -46,6 +46,14 @@
   padding: 0 1em;
   align-items: center; }
 
+.notification:after {
+  position: relative;
+  top: -3em;
+  right: -2em;
+  content: "•";
+  color: #76B1BE;
+  z-index: 100; }
+
 #app-name {
   font-size: 1em;
   color: #FFFFFF;
@@ -53,17 +61,6 @@
   margin-left: 0; }
   #app-name span {
     font-weight: 100; }
-
-#bell-icon {
-  width: 1em;
-  height: 1em;
-  margin: 1em;
-  /* 
-  	&:after {
-  		content: "•";
-  		color: $tertiary-color; 
-  	}
-  */ }
 
 #alert-div {
   display: flex;
@@ -212,13 +209,20 @@
   height: 1.5em;
   margin: 11px; }
   .icon .st0 {
-    fill: #FFFFFF; }
+    fill: #B2B2B2; }
 
 #settings-icon {
   margin-right: auto; }
   @media (min-width: 768px) {
     #settings-icon {
       margin-bottom: auto; } }
+
+#bell-icon {
+  width: 1em;
+  height: 1em;
+  margin: 1em; }
+  #bell-icon .st0 {
+    fill: #FFFFFF; }
 
 #message-user input[type="text"] {
   display: block;

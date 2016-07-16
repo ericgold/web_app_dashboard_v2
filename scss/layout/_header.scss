@@ -3,12 +3,26 @@
 	height: 3em;
 	background-color: $primary-color;
 	padding: 0 1em;
-	align-items: center;
+	align-items: center;	
+}
 
-	.svg-container {
+#bell-container {
 	@extend %svg-container;
+}
+
+
+.notification {
+	// the little green dot (alert notifier)
+	&:after {
+		position: relative;
+		top: -3em;
+		right: -2em;
+		content: "•";
+		color: $tertiary-color; 
+		z-index: 100;
 	}
 }
+
 
 #app-name {
 	font-size: 1em;
@@ -21,19 +35,6 @@
 		font-weight: 100;
 	}
 
-}
-
-#bell-icon {
-	width: 2 * $icon-size / 3;
-	height: 2 * $icon-size /3;
-	margin: 1em;	
-
-/* 
-	&:after {
-		content: "•";
-		color: $tertiary-color; 
-	}
-*/
 }
 
 // Alert dropdown container for bell icon click
@@ -65,7 +66,7 @@
 }
 
 
-//wraps .profile-photo and #profile-name
+//wraps #profile-photo and #profile-name
 #profile-box {
 	@include flexy(row);
 	align-items: center;

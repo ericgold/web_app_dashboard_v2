@@ -30,10 +30,22 @@ var bellIcon = document.getElementById("bell-icon");
 var alert1 = "Ashley Pike signed up";
 var alert2 = "Hart Love commented";
 
+//variables for green dot on bell icon
+var newNotification = true;
+
+function showDot() {
+	if (newNotification) {
+		bellContainer.classList.add("notification");
+	} else {
+		bellContainer.classList.remove("notification");
+	}
+}
+
+document.addEventListener("DOMContentLoaded", showDot);
+
 // set up alert div with two alert boxes inside
 // need to DRY this up with a loop? 
-// maybe also add alert from alert bar on cancel to this loop,
-// so it shows up in the alert div after the bar is closed
+
 function setupAlertDiv() {
 	alertDiv.setAttribute("id", "alert-div");
 
@@ -55,6 +67,8 @@ function dropAlertDiv() {
 // remove alert div from the main header
 function hideAlertDiv() {
 	mainHeader.removeChild(alertDiv);
+	newNotification = false;
+	showDot();
 }
 
 // event listeners for adding and removing the alert div
@@ -65,10 +79,21 @@ alertDiv.addEventListener("click", hideAlertDiv);
 
 // variables for alert bar cancel
 var alertBar = document.getElementById('alert');
+var alertText = document.getElementById('alert-text');
 var alertX = document.getElementById('alert-x');
+
+// transfer alert from bar to dropdown
+function moveAlert() {
+	alertBox3 = document.createElement("div");
+	alert3 = alertText.textContent;
+	alertBox3.classList.add("alert-box");
+	alertBox3.textContent = alert3;
+	alertDiv.appendChild(alertBox3);
+}
 
 // remove alert bar
 function hideAlert() {
+	moveAlert();
 	alertBar.style.display = "none";
 }
 
