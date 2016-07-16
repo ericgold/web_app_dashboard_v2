@@ -225,7 +225,7 @@ canvas {
 .widget-heading {
   text-transform: uppercase; }
 
-#traffic-line-nav button.active {
+#traffic-line-nav button.traffic-active {
   background-color: #83C891;
   color: #FFFFFF; }
 

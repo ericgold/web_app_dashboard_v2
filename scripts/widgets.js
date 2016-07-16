@@ -23,13 +23,13 @@ var monthlyButton = document.getElementById('monthly-button');
 
 // Traffic Line Navigation
 
-function toggleActive(btn) {
+function toggleTrafficActive(btn) {
 	for (var i=0; i<trafficLineButton.length; i++){
-		if (trafficLineButton[i].classList.contains("active")) {
-			trafficLineButton[i].classList.remove("active");
+		if (trafficLineButton[i].classList.contains("traffic-active")) {
+			trafficLineButton[i].classList.remove("traffic-active");
 		}
 	}
-	btn.classList.add("active");
+	btn.classList.add("traffic-active");
 	
 }
 
@@ -53,7 +53,7 @@ var trafficLineDataHourly = {
 			 "6pm",
 			 "8pm", 
 			 "10pm"
-			 ],
+	],
 
 	datasets: [
 		{
@@ -73,7 +73,7 @@ var trafficLineDataHourly = {
 			data: [0, 10, 10, 20, 15, 80, 120, 200, 150, 250, 180, 100, 60]
 		}
 	]
-}
+};
 
 var trafficLineDataDaily = {
 	labels: [
@@ -89,7 +89,7 @@ var trafficLineDataDaily = {
 			 "11-17",
 			 "19-24", 
 			 "25-31"
-			 ],
+	],
 
 	datasets: [
 		{
@@ -109,7 +109,7 @@ var trafficLineDataDaily = {
 			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
 		}
 	]
-}
+};
 
 var trafficLineDataWeekly = {
 
@@ -126,7 +126,7 @@ var trafficLineDataWeekly = {
 			 "11-17",
 			 "19-24", 
 			 "25-31"
-			 ],
+	],
 
 	datasets: [
 		{
@@ -146,7 +146,7 @@ var trafficLineDataWeekly = {
 			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
 		}
 	]
-}
+};
 
 var trafficLineDataMonthly = {
 	labels: [
@@ -162,7 +162,7 @@ var trafficLineDataMonthly = {
 			 "11-17",
 			 "19-24", 
 			 "25-31"
-			 ],
+	],
 
 	datasets: [
 		{
@@ -182,7 +182,7 @@ var trafficLineDataMonthly = {
 			data: [0, 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000]
 		}
 	]
-}
+};
 
 
 // Traffic Line Options
@@ -210,9 +210,9 @@ var trafficLineOptionsHourly = {
 			}		
 		}]
 	}
-}
+};
 
-var trafficLineOptionsDaily = {}
+var trafficLineOptionsDaily = {};
 
 var trafficLineOptionsWeekly = {
 	scales: {
@@ -237,43 +237,9 @@ var trafficLineOptionsWeekly = {
 			}		
 		}]
 	}	
-}
+};
 
-var trafficLineOptionsMonthly = {}
-
-
-// Functions and event listeners for refreshing the chart
-
-function hourlyTraffic() {
-	//highlight Hourly button
-	toggleActive(hourlyButton);
-
-	//swap data object in trafficLine chart (doesn't work)
-	trafficLine.data = trafficLineDataHourly;
-	console.log(trafficLine.data);
-	
-	//swap options object in trafficLine chart (does work?)
-	trafficLine.options = trafficLineOptionsHourly;
-	console.log(trafficLine.options);
-	
-	//redraw chart with new data
-	trafficLine.update();
-}
-
-function dailyTraffic() {
-	toggleActive(dailyButton);
-	trafficLine.data = trafficLineDataDaily;
-}
-
-function weeklyTraffic() {
-	toggleActive(weeklyButton);
-	trafficLine.data = trafficLineDataWeekly;
-}
-
-function monthlyTraffic() {
-	toggleActive(monthlyButton);
-	trafficLine.data = trafficLineDataMonthly;
-}
+var trafficLineOptionsMonthly = {};
 
 // Create the traffic line chart with weekly data and options
 
@@ -282,6 +248,42 @@ var trafficLine = new Chart(trafficLineWidget, {
 	data: trafficLineDataWeekly,
 	options: trafficLineOptionsWeekly
 });
+
+// Functions and event listeners for refreshing the chart
+
+function hourlyTraffic() {
+
+	//highlight Hourly button
+	toggleTrafficActive(hourlyButton);
+
+	//swap data object in trafficLine chart (doesn't work)
+	trafficLine.data = trafficLineDataHourly;
+	//console.log(trafficLine.data);
+	
+	//swap options object in trafficLine chart (does work?)
+	trafficLine.options = trafficLineOptionsHourly;
+	//console.log(trafficLine.options);
+	
+	//redraw chart with new data
+	trafficLine.update();
+}
+
+function dailyTraffic() {
+	toggleTrafficActive(dailyButton);
+	trafficLine.data = trafficLineDataDaily;
+}
+
+function weeklyTraffic() {
+	toggleTrafficActive(weeklyButton);
+	trafficLine.data = trafficLineDataWeekly;
+}
+
+function monthlyTraffic() {
+	toggleTrafficActive(monthlyButton);
+	trafficLine.data = trafficLineDataMonthly;
+}
+
+
 
 // Traffic Line Chart navigation event listeners
 
