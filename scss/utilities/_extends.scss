@@ -28,3 +28,10 @@
 	border-radius: 3px;
 	outline: none;
 }
+
+%focus {
+	&:focus {
+		border: 2px solid $tertiary-color;
+	}
+	
+}

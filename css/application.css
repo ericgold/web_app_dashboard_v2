@@ -6,7 +6,7 @@
   color: #B2B2B2;
   font-size: 0.5em; }
 
-#traffic-bar-box {
+#message-user, #traffic-bar-box {
   padding: 1em; }
 
 header .svg-container, #main-nav .svg-container {
@@ -19,6 +19,9 @@ header .svg-container, #main-nav .svg-container {
   margin: 1.5em 0;
   border-radius: 3px;
   outline: none; }
+
+#user-input:focus, #user-message:focus, #message-button:focus {
+  border: 2px solid #76B1BE; }
 
 * {
   box-sizing: border-box; }
@@ -202,14 +205,16 @@ header {
   border: 1px solid #B2B2B2;
   background-color: #f2f2f2;
   color: #B2B2B2;
-  font-size: 0.5em; }
+  font-size: 0.5em;
+  padding: 0 1em; }
 
 #user-message {
   height: 12em;
   border: 1px solid #B2B2B2;
   background-color: #f2f2f2;
   color: #B2B2B2;
-  font-size: 0.5em; }
+  font-size: 0.5em;
+  padding: 1em; }
 
 #message-button {
   height: 4em;
