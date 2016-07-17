@@ -149,7 +149,7 @@
 									<h3 class="widget-heading">Settings</h3>
 									<div class="switch-row">
 										<label class="switch-light switch-ios">
-											<input type="checkbox" checked>
+											<input id="email-switch" type="checkbox" checked>
 											<strong>Send Email Notifications</strong>
 											<span id="lightswitch-email" aria-hidden="true">
 												<span>Off</span>
@@ -160,7 +160,7 @@
 									</div>
 									<div class="switch-row">
 										<label class="switch-light switch-ios">
-											<input type="checkbox" checked>
+											<input id="public-switch" type="checkbox" checked>
 											<strong>Set Profile to Public</strong>
 											<span id="lightswitch-public" aria-hidden="true">
 												<span>Off</span>
@@ -170,12 +170,11 @@
 										</label>
 									</div>
 									<select id="timezone">
-										<option selected>Select Timezone</option>
 										<option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
 										<option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
 										<option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>
 										<option timeZoneId="4" gmtAdjustment="GMT-09:00" useDaylightTime="1" value="-9">(GMT-09:00) Alaska</option>
-										<option timeZoneId="5" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
+										<option timeZoneId="5" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8" selected>(GMT-08:00) Pacific Time (US & Canada)</option>
 										<option timeZoneId="6" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8">(GMT-08:00) Tijuana, Baja California</option>
 										<option timeZoneId="7" gmtAdjustment="GMT-07:00" useDaylightTime="0" value="-7">(GMT-07:00) Arizona</option>
 										<option timeZoneId="8" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-7">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
