@@ -1,5 +1,6 @@
 #message-user {
 	@extend %widget-spacing;
+	position: relative;
 }
 
 #user-input {
@@ -33,4 +34,24 @@
 	font-size: 0.5em;
 	text-transform: uppercase;
 	border: none;
+}
+
+//styles for containers for message-user popups: 
+//errors and send confirm
+#message-div {
+	box-sizing: border-box;
+	background-color: $tertiary-color;
+	position: absolute;
+	top: 2em;
+	left: 6em;
+	border-radius: 3px;
+	//z-index: 1000;
+
+}
+
+.message-box {
+	color: $text-color-light;
+	padding: 1em;
+	font-size: 0.75em;
+	text-align: center;
 }

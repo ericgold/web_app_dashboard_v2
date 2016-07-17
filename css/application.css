@@ -200,6 +200,9 @@ header {
     #settings-icon {
       margin-bottom: auto; } }
 
+#message-user {
+  position: relative; }
+
 #user-input {
   height: 4em;
   border: 1px solid #B2B2B2;
@@ -223,6 +226,20 @@ header {
   font-size: 0.5em;
   text-transform: uppercase;
   border: none; }
+
+#message-div {
+  box-sizing: border-box;
+  background-color: #76B1BE;
+  position: absolute;
+  top: 2em;
+  left: 6em;
+  border-radius: 3px; }
+
+.message-box {
+  color: #FFFFFF;
+  padding: 1em;
+  font-size: 0.75em;
+  text-align: center; }
 
 #traffic-line-nav {
   display: flex;

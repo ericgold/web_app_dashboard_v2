@@ -11,15 +11,16 @@ Chart.defaults.global.legend.display = false;
 
 // *** Message User ***
 
+//variables for the message user widget
+var messageUserWidget = document.getElementById("message-user");
 var userInput = document.getElementById("user-input");
 var userMessage = document.getElementById("user-message");
 var messageButton = document.getElementById("message-button");
 
-
-
-
+//array to hold users
 var users = [];
 
+//constructor function for users
 function User(firstName, lastName, email, joinDate) {
 	//constructor function for user objects
 	this.firstName = firstName;
@@ -29,14 +30,35 @@ function User(firstName, lastName, email, joinDate) {
 	users.push(this);
 }
 
-//users 
+//variables for users
 var user1 = new User('Hart', 'Love', 'hlove@emotion.com', '6/3/16');
 var user2 = new User('Ashley', 'Pike', 'ashp@saranrae.com', '7/6/16');
 var user3 = new User('Dan', 'Mann', 'd.mann@qmail.com', '7/7/16');
 var user4 = new User('Alice', 'Inwonderland', 'alice@rabbithole.com', '7/13/16');
 
+//*alert and confirmation div*
 
+//popup container for message widget errors and confirmations
+var messageDiv = document.createElement("div");
+//container for an individual error or confirmation message
+var messageBox = document.createElement("div");
+var userError = "Please choose a user to message";
+var messageError = "Please enter a message";
+var sendConfirm = "Message sent";
 
+function setupMessageDiv() {
+	messageDiv.setAttribute("id", "message-div");
+}
+
+function setupMessageBox(arg) {
+	messageBox.classList.add("message-box");
+	messageBox.textContent = arg;
+}
+
+function showMesssageDiv() {
+	messageDiv.appendChild(messageBox);
+	messageUserWidget.insertBefore(messageDiv, userInput);
+}
 
 
 function userSearch() {
@@ -56,7 +78,10 @@ function noUser() {
 	//runs if no user has been entered when button is pressed
 	var query = userInput.value;
 	if (query === null || query === "") {
-		alert("please choose a user to message");
+		
+		setupMessageDiv();
+		setupMessageBox(userError);
+		showMesssageDiv();
 	} else {
 		noMessage();
 	}
@@ -66,7 +91,11 @@ function noMessage() {
 	//runs if user but no message has been entered when button is pressed
 	var message = userMessage.value;
 	if (message === null || message === "") {
-		alert("please enter a message");
+		
+		setupMessageDiv();
+		setupMessageBox(messageError);
+		showMesssageDiv();
+
 	} else {
 		messageSend();
 	}
@@ -76,7 +105,11 @@ function messageSend() {
 	//sends message, clearing both form fields
 	userInput.value = "";
 	userMessage.value = "";
-	alert("message sent");
+	
+	setupMessageDiv();
+	setupMessageBox(sendConfirm);
+	showMesssageDiv();
+	
 }
 
 function messageCheck() {
@@ -84,5 +117,10 @@ function messageCheck() {
 	noUser();
 }
 
+function hideMessage() {
+	messageUserWidget.removeChild(messageDiv);
+}
+
 messageButton.addEventListener("click", messageCheck);
 userInput.addEventListener("keypress", userSearch);
+messageDiv.addEventListener("click", hideMessage);
