@@ -4,13 +4,14 @@
 
 .switch-row {
 	@include flexy(row);
-	justify-content: space-between;
+	//justify-content: flex-end;
 	margin: 0.5em 40% 0 0;
 }
 
 .switch-ios.switch-light {
 	display: inline;
 	font-size: 0.75em;
+	width: 100%;
 
 	strong {
 		color: $gray;
@@ -20,8 +21,15 @@
 
 .switch-ios.switch-light > span {
 	width: 6em;
-	margin-left: 3em;
 	text-transform: uppercase;
+}
+
+#lightswitch-email {
+	margin-left: 5em;
+}
+
+#lightswitch-public {
+	margin-left: 7em;
 }
 
 .switch-ios.switch-light span {
