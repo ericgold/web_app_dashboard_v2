@@ -21,8 +21,10 @@ var publicSwitch = document.getElementById("public-switch");
 var publicSetting = publicSwitch.value;
 
 var timeZoneSelect = document.getElementById("timezone");
-var timeZoneSelected = timeZoneSelect.options[timeZoneSelect.selectedIndex];
-var timeZoneSetting = timeZoneSelected.value;
+var timeZoneSelected = timeZoneSelect.value;
+var timeZoneSetting = timeZoneSelected;
+//var timeZoneSelected = timeZoneSelect.options[timeZoneSelect.selectedIndex];
+//var timeZoneSetting = timeZoneSelected.value;
 
 
 var saveSettingsButton = document.getElementById("save-settings-button");
@@ -32,34 +34,50 @@ function saveSettings() {
 	localStorage.setItem('email', emailSetting);
 	localStorage.setItem('public', publicSetting);
 	localStorage.setItem('tzone', timeZoneSetting);
-	//console.log(localStorage);
+	console.log(localStorage);
 }
 
 function resetSettings() {
 	localStorage.clear();
-	//console.log(localStorage);
+	console.log(localStorage);
 }
 
-//THESE DO NOT UPDATE THE VALUE YET
 function updateEmail() {
+	if (emailSwitch.value === "email-on") {
+		emailSwitch.value = "email-off";
+	} else {
+		emailSwitch.value = "email-on";
+
+	}
 	emailSetting = emailSwitch.value;
-	saveSettings();
+	//saveSettings();
 }
 
 function updatePublic() {
+	if (publicSwitch.value === "public-on") {
+		publicSwitch.value = "public-off";
+	} else {
+		publicSwitch.value = "public-on";
+	}
 	publicSetting = publicSwitch.value;
-	saveSettings();
+	//saveSettings();
 }
 
 function updateTimeZone() {
-	timeZoneSetting = timeZoneSelected.value;
-	saveSettings();
+	//timeZoneSelected.value = timeZoneSelect.options[timeZoneSelect.selectedIndex];
+	//timeZoneSetting = timeZoneSelected.value;
+	timeZoneSelected = timeZoneSelect.value;
+	timeZoneSetting = timeZoneSelected;
+	//saveSettings();
 }
 
-emailSwitch.addEventListener('change', updateEmail);
-publicSwitch.addEventListener('change', updatePublic);
-timeZoneSelect.addEventListener('change', updateTimeZone);
+
+
+emailSwitch.addEventListener("change", updateEmail);
+publicSwitch.addEventListener("change", updatePublic);
+timeZoneSelect.addEventListener("change", updateTimeZone);
 
 saveSettingsButton.addEventListener("click", saveSettings);
 cancelSettingsButton.addEventListener("click", resetSettings);
+
 
