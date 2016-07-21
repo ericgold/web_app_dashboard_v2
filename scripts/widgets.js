@@ -43,24 +43,31 @@ function resetSettings() {
 }
 
 function updateEmail() {
-	if (emailSwitch.value === "email-on") {
-		emailSwitch.value = "email-off";
+	if (emailSwitch.value === "on") {
+		emailSwitch.value = "off";
+		emailSwitch.setAttribute("value", "off");
+		emailSwitch.setAttribute("checked", false);
 	} else {
-		emailSwitch.value = "email-on";
-
+		emailSwitch.value = "on";
+		emailSwitch.setAttribute("value", "on")
+		emailSwitch.setAttribute("checked", true);
 	}
 	emailSetting = emailSwitch.value;
-	//saveSettings();
+	
 }
 
 function updatePublic() {
-	if (publicSwitch.value === "public-on") {
-		publicSwitch.value = "public-off";
+	if (publicSwitch.value === "on") {
+		publicSwitch.value = "off";
+		publicSwitch.setAttribute("value", "off");
+		publicSwitch.setAttribute("checked", false);
 	} else {
-		publicSwitch.value = "public-on";
+		publicSwitch.value = "on";
+		publicSwitch.setAttribute("value", "on")
+		publicSwitch.setAttribute("checked", true);
 	}
 	publicSetting = publicSwitch.value;
-	//saveSettings();
+	
 }
 
 function updateTimeZone() {
@@ -69,6 +76,64 @@ function updateTimeZone() {
 	timeZoneSelected = timeZoneSelect.value;
 	timeZoneSetting = timeZoneSelected;
 	//saveSettings();
+}
+
+function initializeSettings() {
+	console.log("initializing");
+	//check if local storage is supported
+	if (window.localStorage){
+		console.log("storage detected");
+		//check if it has values
+		if (localStorage.email) {
+			console.log("email detected");
+			emailSwitch.value = localStorage.getItem("email");
+			emailSetting = emailSwitch.value;
+			emailSwitch.setAttribute("value", emailSetting);
+			if (emailSetting = "on") {
+				emailSwitch.setAttribute("checked", true);
+			} else if (emailSetting = "off") {
+				emailSwitch.setAttribute("checked", false);
+			}
+		} else {
+			console.log("setting default email value of on")
+			emailSwitch.value = "on";
+			emailSwitch.setAttribute("value", "on");
+			emailSwitch.setAttribute("checked", true);
+			emailSetting = emailSwitch.value;
+		}
+
+		if (localStorage.public) {
+			console.log("public detected");
+			publicSwitch.value = localStorage.getItem("public");
+			publicSetting = publicSwitch.value;
+			publicSwitch.setAttribute("value", publicSetting);
+			if (publicSetting = "on") {
+				publicSwitch.setAttribute("checked", true);
+			} else if (publicSetting = "off") {
+				publicSwitch.setAttribute("checked", false);
+			}
+
+		} else {
+			console.log("setting default public value of on");
+			publicSwitch.value = "on";
+			publicSwitch.setAttribute("value", "on");
+			publicSwitch.setAttribute("checked", true);
+			publicSetting = publicSwitch.value;
+		}
+
+		if (localStorage.tzone) {
+			console.log("time zone detected");
+			timeZoneSelect.value = localStorage.getItem("tzone");
+			timeZoneSelected = timeZoneSelect.value;
+			timeZoneSetting = timeZoneSelected;
+		} else {
+			console.log("setting default time zone to Pacific");
+			timeZoneSelect.value = "-8";
+			timeZoneSelected = timeZoneSelect.value;
+			timeZoneSetting = timeZoneSelected;
+		}
+	}
+
 }
 
 
@@ -80,4 +145,4 @@ timeZoneSelect.addEventListener("change", updateTimeZone);
 saveSettingsButton.addEventListener("click", saveSettings);
 cancelSettingsButton.addEventListener("click", resetSettings);
 
-
+window.addEventListener("load", initializeSettings);
