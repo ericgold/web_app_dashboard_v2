@@ -21,27 +21,30 @@ var publicSwitch = document.getElementById("public-switch");
 var publicSetting = publicSwitch.value;
 
 var timeZoneSelect = document.getElementById("timezone");
-var timeZoneSelected = timeZoneSelect.value;
-var timeZoneSetting = timeZoneSelected;
-//var timeZoneSelected = timeZoneSelect.options[timeZoneSelect.selectedIndex];
-//var timeZoneSetting = timeZoneSelected.value;
+var timeZoneSetting = timeZoneSelect.value;
 
 
 var saveSettingsButton = document.getElementById("save-settings-button");
 var cancelSettingsButton = document.getElementById("cancel-settings-button");
 
+//saves current settings to local storage
 function saveSettings() {
 	localStorage.setItem('email', emailSetting);
-	localStorage.setItem('public', publicSetting);
+	localStorage.setItem('publicpro', publicSetting);
 	localStorage.setItem('tzone', timeZoneSetting);
 	console.log(localStorage);
 }
 
+//clears local storage and sets controls to defaults
 function resetSettings() {
+	console.log("clearing storage");
 	localStorage.clear();
+	console.log("setting defaults");
+	setDefaultSettings();
 	console.log(localStorage);
 }
 
+//sets variable to the value of the switch
 function updateEmail() {
 	if (emailSwitch.value === "on") {
 		emailSwitch.value = "off";
@@ -53,9 +56,9 @@ function updateEmail() {
 		emailSwitch.setAttribute("checked", true);
 	}
 	emailSetting = emailSwitch.value;
-	
 }
 
+//sets variable to the value of the switch
 function updatePublic() {
 	if (publicSwitch.value === "on") {
 		publicSwitch.value = "off";
@@ -70,73 +73,130 @@ function updatePublic() {
 	
 }
 
+//sets variable to value of the select
 function updateTimeZone() {
-	//timeZoneSelected.value = timeZoneSelect.options[timeZoneSelect.selectedIndex];
-	//timeZoneSetting = timeZoneSelected.value;
-	timeZoneSelected = timeZoneSelect.value;
-	timeZoneSetting = timeZoneSelected;
-	//saveSettings();
+	timeZoneSetting = timeZoneSelect.value;
 }
 
-function initializeSettings() {
-	console.log("initializing");
+//matches switch "checked" attribute to value state
+function matchEmail() {
+	if (emailSetting === "on") {
+			emailSwitch.setAttribute("checked", "checked");
+		} else if (emailSetting === "off") {
+			emailSwitch.removeAttribute("checked");
+	}
+}
+
+//sets default value of email switch to "on"
+function setDefaultEmail() {
+	emailSwitch.value = "on";
+	emailSetting = emailSwitch.value;
+	emailSwitch.setAttribute("value", emailSetting);
+	matchEmail();
+}
+
+//checks for email switch value in local storage
+//if present, sets switch to stored value
+//otherwise, sets to default value
+function checkForEmail() {
+	if (localStorage.email) {
+		console.log("email detected");
+		emailSwitch.value = localStorage.getItem("email");
+		emailSetting = emailSwitch.value;
+		emailSwitch.setAttribute("value", emailSetting);
+		matchEmail();
+
+	} else {
+		console.log("no email detected");
+		setDefaultEmail();
+	}
+}
+
+//matches switch "checked" attribute to value state
+function matchPublic() {
+	if (publicSetting === "on") {
+			publicSwitch.setAttribute("checked", "checked");
+		} else if (publicSetting === "off") {
+			publicSwitch.removeAttribute("checked");
+		}
+}
+
+//sets default value of public profile switch to "on"
+function setDefaultPublic() {
+	publicSwitch.value = "on";
+	publicSetting = publicSwitch.value;
+	publicSwitch.setAttribute("value", publicSetting);
+	matchPublic();
+}
+
+//checks for public profile switch value in local storage
+//if present, sets switch to stored value
+//otherwise, sets to default value
+function checkForPublic() {
+	if (localStorage.publicpro) {
+		console.log("public detected");
+		publicSwitch.value = localStorage.getItem("publicpro");
+		publicSetting = publicSwitch.value;
+		publicSwitch.setAttribute("value", publicSetting);
+		matchPublic();
+		
+	} else {
+		console.log("no public detected");
+		setDefaultPublic();
+	}
+}
+
+//sets default time zone of Pacific
+function setDefaultTimeZone() {
+	console.log("setting default time zone");
+	timeZoneSelect.value = "-8";
+	timeZoneSetting = timeZoneSelect.value;
+}
+
+//checks for time zone in local storage
+//if present, sets time zone to stored value
+//otherwise, sets default time zone
+function checkForTimeZone() {
+	console.log("checking for time zone");
+	if (localStorage.tzone) {
+		console.log("time zone detected");
+		timeZoneSelect.value = localStorage.getItem("tzone");
+		timeZoneSetting = timeZoneSelect.value;
+	} else {
+		console.log("no time zone detected");
+		setDefaultTimeZone;
+	}
+}
+
+//checks for values in local storage
+function checkForSettings() {
+	checkForEmail();
+	checkForPublic();
+	checkForTimeZone();
+}
+
+//sets default values for the 3 controls
+function setDefaultSettings() {
+	setDefaultEmail();
+	setDefaultPublic();
+	setDefaultTimeZone();
+}
+
+// checks to see if local storage is supported
+function checkLocalStorage() {
+	console.log("checking local storage");
 	//check if local storage is supported
 	if (window.localStorage){
 		console.log("storage detected");
-		//check if it has values
-		if (localStorage.email) {
-			console.log("email detected");
-			emailSwitch.value = localStorage.getItem("email");
-			emailSetting = emailSwitch.value;
-			emailSwitch.setAttribute("value", emailSetting);
-			if (emailSetting = "on") {
-				emailSwitch.setAttribute("checked", true);
-			} else if (emailSetting = "off") {
-				emailSwitch.setAttribute("checked", false);
-			}
-		} else {
-			console.log("setting default email value of on")
-			emailSwitch.value = "on";
-			emailSwitch.setAttribute("value", "on");
-			emailSwitch.setAttribute("checked", true);
-			emailSetting = emailSwitch.value;
-		}
-
-		if (localStorage.public) {
-			console.log("public detected");
-			publicSwitch.value = localStorage.getItem("public");
-			publicSetting = publicSwitch.value;
-			publicSwitch.setAttribute("value", publicSetting);
-			if (publicSetting = "on") {
-				publicSwitch.setAttribute("checked", true);
-			} else if (publicSetting = "off") {
-				publicSwitch.setAttribute("checked", false);
-			}
-
-		} else {
-			console.log("setting default public value of on");
-			publicSwitch.value = "on";
-			publicSwitch.setAttribute("value", "on");
-			publicSwitch.setAttribute("checked", true);
-			publicSetting = publicSwitch.value;
-		}
-
-		if (localStorage.tzone) {
-			console.log("time zone detected");
-			timeZoneSelect.value = localStorage.getItem("tzone");
-			timeZoneSelected = timeZoneSelect.value;
-			timeZoneSetting = timeZoneSelected;
-		} else {
-			console.log("setting default time zone to Pacific");
-			timeZoneSelect.value = "-8";
-			timeZoneSelected = timeZoneSelect.value;
-			timeZoneSetting = timeZoneSelected;
-		}
+		checkForSettings();
+		
+	} else {
+		console.log("no storage detected");
+		setDefaultSettings();
 	}
-
 }
 
-
+// Settings Widget Event Listners
 
 emailSwitch.addEventListener("change", updateEmail);
 publicSwitch.addEventListener("change", updatePublic);
@@ -145,4 +205,4 @@ timeZoneSelect.addEventListener("change", updateTimeZone);
 saveSettingsButton.addEventListener("click", saveSettings);
 cancelSettingsButton.addEventListener("click", resetSettings);
 
-window.addEventListener("load", initializeSettings);
+window.addEventListener("load", checkLocalStorage);
