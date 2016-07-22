@@ -21,7 +21,8 @@ var publicSwitch = document.getElementById("public-switch");
 var publicSetting = publicSwitch.value;
 
 var timeZoneSelect = document.getElementById("timezone");
-var timeZoneSetting = timeZoneSelect.value;
+//var timeZoneSetting = timeZoneSelect.value;
+var timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('timeZoneId');
 
 
 var saveSettingsButton = document.getElementById("save-settings-button");
@@ -75,8 +76,22 @@ function updatePublic() {
 
 //sets variable to value of the select
 function updateTimeZone() {
-	timeZoneSetting = timeZoneSelect.value;
+	timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('timeZoneId');	
 }
+
+function restoreTimeZone() {
+	
+		for (var i=0; i < timeZoneSelect.options.length; i++) {
+		if (timeZoneSelect.options[i].hasAttribute("selected")) {
+			timeZoneSelect.options[i].removeAttribute("selected");
+		} 
+	}
+	timeZoneSelect.options[timeZoneSetting - 1].setAttribute("selected", "selected");
+
+	console.log(timeZoneSetting);
+}
+
+
 
 //matches switch "checked" attribute to value state
 function matchEmail() {
@@ -150,7 +165,9 @@ function checkForPublic() {
 function setDefaultTimeZone() {
 	console.log("setting default time zone");
 	timeZoneSelect.value = "-8";
-	timeZoneSetting = timeZoneSelect.value;
+	//timeZoneSetting = timeZoneSelect.value;
+	//timeZoneIdSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('timeZoneId');
+	
 }
 
 //checks for time zone in local storage
@@ -160,11 +177,13 @@ function checkForTimeZone() {
 	console.log("checking for time zone");
 	if (localStorage.tzone) {
 		console.log("time zone detected");
-		timeZoneSelect.value = localStorage.getItem("tzone");
-		timeZoneSetting = timeZoneSelect.value;
+		//timeZoneSelect.value = localStorage.getItem("tzone");
+		//timeZoneSetting = timeZoneSelect.value;
+		timeZoneSetting = localStorage.getItem("tzone");
+		restoreTimeZone();
 	} else {
 		console.log("no time zone detected");
-		setDefaultTimeZone;
+		setDefaultTimeZone();
 	}
 }
 
