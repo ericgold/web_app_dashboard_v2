@@ -17,6 +17,10 @@ var userInput = document.getElementById("user-input");
 var userMessage = document.getElementById("user-message");
 var messageButton = document.getElementById("message-button");
 
+//variables for message user search dropdown 
+var userDiv = document.createElement("div");
+var userBox = document.createElement("div");
+
 //array to hold users
 var users = [];
 
@@ -60,7 +64,13 @@ function showMesssageDiv() {
 	messageUserWidget.insertBefore(messageDiv, userInput);
 }
 
+function showResults() {
+	//add matched search results' first and last names
+	//to a userBox
+	//add that userBox to the userDiv
+}
 
+/*
 function userSearch() {
 	//filters the input so only matched users display
 	var query = userInput.value;
@@ -69,8 +79,66 @@ function userSearch() {
 	//compare query to that variable
 
 	//if query is in the array (!== -1) 
+
 		//add that user's name to the dropdown
 	
+	for (var i = 0; i < users.length; i++) {
+		if (users[i].firstName === query || users[i].lastName === query) {
+			console.log(users[i].firstName + " " + users[i].lastName)
+		}
+	}	
+}
+*/
+
+function setupUserDiv() {
+	userDiv.setAttribute("id", "user-div");
+}
+
+function setupUserBox(suggestion) {
+	userBox.classList.add("user-box");
+	userBox.textContent = suggestion.firstName + " " + suggestion.lastName;
+	userDiv.appendChild(userBox);
+	
+}
+
+function showUserDiv() {
+	messageUserWidget.insertBefore(userDiv, userMessage);
+}
+
+function removeUserDiv() {
+	messageUserWidget.removeChild(userDiv);
+}
+
+function userSelect() {
+	userInput.value = this.textContent.toString();
+	removeUserDiv();
+}
+
+
+function userSearch() {
+	
+	var query = userInput.value;
+
+	setupUserDiv();
+
+	if(query) {
+		for (var i = 0; i < users.length; i++) {
+			if (users[i].firstName.indexOf(query) !== -1) {
+				//console.log(users[i].firstName + " " + users[i].lastName);
+				
+				setupUserBox(users[i]);
+			}
+			else if (users[i].lastName.indexOf(query) !== -1) {
+				//console.log(users[i].firstName + " " + users[i].lastName);
+				
+				setupUserBox(users[i]);
+			}
+		}
+
+		showUserDiv();	
+	} else {
+		removeUserDiv();
+	}
 }
 
 
@@ -122,5 +190,6 @@ function hideMessage() {
 }
 
 messageButton.addEventListener("click", messageCheck);
-userInput.addEventListener("keypress", userSearch);
+userInput.addEventListener("keyup", userSearch);
 messageDiv.addEventListener("click", hideMessage);
+userBox.addEventListener("click", userSelect);

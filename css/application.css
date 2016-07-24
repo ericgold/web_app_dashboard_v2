@@ -241,6 +241,20 @@ header {
   font-size: 0.75em;
   text-align: center; }
 
+#user-div {
+  box-sizing: border-box;
+  background-color: #76B1BE;
+  position: absolute;
+  top: 5em;
+  left: 10em;
+  border-radius: 3px; }
+
+.user-box {
+  color: #FFFFFF;
+  padding: 1em;
+  font-size: 0.75em;
+  text-align: center; }
+
 #traffic-line-nav {
   display: flex;
   flex-direction: row;

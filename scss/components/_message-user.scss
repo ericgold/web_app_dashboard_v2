@@ -55,3 +55,22 @@
 	font-size: 0.75em;
 	text-align: center;
 }
+
+//styles for user suggestions on search
+#user-div {
+	box-sizing: border-box;
+	background-color: $tertiary-color;
+	position: absolute;
+	top: 5em;
+	left: 10em;
+	border-radius: 3px;
+
+}
+
+.user-box {
+	color: $text-color-light;
+	padding: 1em;
+	font-size: 0.75em;
+	text-align: center;
+}
+
