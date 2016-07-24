@@ -20,7 +20,8 @@ header .svg-container, #main-nav .svg-container, .social-stat-container .svg-con
 #instagram-icon,
 #codepen-icon {
   background-color: #7379BD;
-  fill: white; }
+  fill: white;
+  border-radius: 50%; }
 
 * {
   box-sizing: border-box; }
@@ -212,7 +213,7 @@ header {
   justify-content: space-around;
   margin: auto; }
   .social-stat-container .svg-container {
-    margin: auto auto auto 1em; }
+    margin: auto 1em auto 1em; }
   @media (min-width: 768px) {
     .social-stat-container {
       display: flex;
@@ -242,6 +243,24 @@ header {
   color: #B2B2B2;
   font-weight: lighter;
   margin: 0; }
+
+#twitter-path {
+  transform: translate(16px, 18px); }
+
+#facebook-path {
+  transform: translate(10px, 10px); }
+
+#google-path {
+  transform: translate(17px, 17px); }
+
+#linkedin-path {
+  transform: translate(17px, 13px); }
+
+#instagram-path {
+  transform: translate(17px, 16px); }
+
+#codepen-path {
+  transform: translate(17px, 15px); }
 
 #traffic-line-nav {
   display: flex;

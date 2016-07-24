@@ -4,7 +4,7 @@
 	margin: auto;
 	.svg-container {
 		@extend %svg-container;
-		margin: auto auto auto 1em;
+		margin: auto 1em auto 1em;
 	}
 
 	@include mq(medium) {
@@ -57,6 +57,35 @@
 #codepen-icon {
 	@extend %social-icon;
 }
+
+#twitter-path {
+	transform: translate(16px, 18px);
+}
+
+#facebook-path {
+	transform: translate(10px, 10px);
+}
+
+#google-path {
+	transform: translate(17px, 17px);
+}
+
+#linkedin-path {
+	transform: translate(17px, 13px);
+}
+
+#instagram-path {
+	transform: translate(17px, 16px);
+}
+
+#codepen-path {
+	transform: translate(17px, 15px);
+}
+
+
+
+
+
 
 
 
