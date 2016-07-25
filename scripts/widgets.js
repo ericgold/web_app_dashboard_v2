@@ -56,20 +56,7 @@ var userError = "Please choose a user to message";
 var messageError = "Please enter a message";
 var sendConfirm = "Message sent";
 
-//* functions for error and confirmation messages *
-function setupMessageDiv() {
-	messageDiv.setAttribute("id", "message-div");
-}
 
-function setupMessageBox(arg) {
-	messageBox.classList.add("message-box");
-	messageBox.textContent = arg;
-}
-
-function showMesssageDiv() {
-	messageDiv.appendChild(messageBox);
-	messageUserWidget.insertBefore(messageDiv, userInput);
-}
 
 //* functions for user search and suggestions *
 
@@ -101,9 +88,9 @@ function removeUserDiv() {
 }
 
 function clearUserDiv() {
-	for (i = 0; i < userDiv.childNodes.length; i++) {
-		userDiv.removeChild[i]
-	}	
+	while (userDiv.firstChild) {
+		userDiv.removeChild(userDiv.firstChild);
+	}
 }
 
 // enter selected suggestion into input field and remove suggestions
@@ -145,12 +132,13 @@ function addMatchedUsers() {
 		}
 }
 
+
 function userSearch() {
-	
 	var query = userInput.value.toLowerCase();
-	
 	//if there is a query
 	if(query) {
+		//clear any existing match results
+		clearUserDiv();
 		//check for users matching the query
 		matchUsers(query);
 		//create container for user suggestions
@@ -165,36 +153,57 @@ function userSearch() {
 	}
 }
 
+// *functions for checking if fields are filled*
 
-function noUser() {
-	//runs if no user has been entered when button is pressed
+//* functions for error and confirmation messages *
+// adds id to messageDiv for styling
+function setupMessageDiv() {
+	messageDiv.setAttribute("id", "message-div");
+}
+//adds class to messageBox for styling
+//adds appropriate text content to the messageBox:
+//messageError, userError, or sendConfirm
+function setupMessageBox(arg) {
+	messageBox.classList.add("message-box");
+	messageBox.textContent = arg;
+}
+
+function showMesssageDiv() {
+	messageDiv.appendChild(messageBox);
+	messageUserWidget.insertBefore(messageDiv, userInput);
+}
+
+//checks if user has been entered when send button is pressed
+// if not, displays error message
+// if so, 'sends' message
+function userCheck() {
 	var query = userInput.value;
 	if (query === null || query === "") {
-		
 		setupMessageDiv();
 		setupMessageBox(userError);
 		showMesssageDiv();
 	} else {
-		noMessage();
+		messageCheck();
 	}
 }
 
-function noMessage() {
-	//runs if user but no message has been entered when button is pressed
+//checks if message has been entered when send button is pressed
+// if not, displays error message
+// if so, 'sends' message
+function messageCheck() {
 	var message = userMessage.value;
 	if (message === null || message === "") {
-		
 		setupMessageDiv();
 		setupMessageBox(messageError);
 		showMesssageDiv();
-
 	} else {
 		messageSend();
 	}
 }
 
+//'sends' message, clearing both form fields
+// and displaying send confirmation
 function messageSend() {
-	//sends message, clearing both form fields
 	userInput.value = "";
 	userMessage.value = "";
 	
@@ -204,17 +213,16 @@ function messageSend() {
 	
 }
 
-function messageCheck() {
-	//checks if input and message fields have been filled
-	noUser();
-}
-
 function hideMessage() {
 	messageUserWidget.removeChild(messageDiv);
 }
 
-messageButton.addEventListener("click", messageCheck);
+//* event listeners for message user widget *
+//checks if a user to message has been chosen on send attempt
+messageButton.addEventListener("click", userCheck);
+//suggests matching users on input
 userInput.addEventListener("keyup", userSearch);
+//hides error and confirmation messages on click
 messageDiv.addEventListener("click", hideMessage);
-
+//allows click to input a suggested user
 userDiv.addEventListener("mouseover", activateSelect);
