@@ -16,13 +16,22 @@
 	padding: 1em;
 }
 
+
 %svg-container {
 	height: 3em;
 	width: 3em;
 }
 
+
 %activity-icon {
 	fill: $primary-color;
 	height: 1.5em;
 	width: 1.5em;
+}
+
+
+%social-icon {
+	background-color: $primary-color;
+	fill: white;
+	border-radius: 50%;
 }
