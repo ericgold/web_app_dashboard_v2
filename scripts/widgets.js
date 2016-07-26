@@ -16,9 +16,6 @@ var membersIcon = document.getElementById("members-icon");
 var visitsIcon = document.getElementById("visits-icon");
 var settingsIcon = document.getElementById("settings-icon");
 
-
-
-<<<<<<< HEAD
 function toggleNavActive() {
 	
 	for (var i=0; i<navButton.length; i++){
@@ -234,6 +231,8 @@ var trafficLineOptions = {
 };
 
 // Create the traffic line chart with weekly data and options
+var trafficLineWidget = document.getElementById('traffic-line');
+
 var trafficLine = new Chart(trafficLineWidget, {
 	type: 'line',
 	data: trafficLineData,
