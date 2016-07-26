@@ -630,3 +630,4 @@ function hideAlert() {
 
 //event listener for alert bar x
 alertX.addEventListener("click", hideAlert);
+
