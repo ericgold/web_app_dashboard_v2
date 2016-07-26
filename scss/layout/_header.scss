@@ -1,14 +1,28 @@
-header {
+#main-header {
 	@include flexy(row);
 	height: 3em;
 	background-color: $primary-color;
 	padding: 0 1em;
-	align-items: center;
+	align-items: center;	
+}
 
-	.svg-container {
+#bell-container {
 	@extend %svg-container;
+}
+
+
+.notification {
+	// the little green dot (alert notifier)
+	&:after {
+		position: relative;
+		top: -3em;
+		right: -2em;
+		content: "•";
+		color: $tertiary-color; 
+		z-index: 100;
 	}
 }
+
 
 #app-name {
 	font-size: 1em;
@@ -20,15 +34,39 @@ header {
 		//add google font so this font-weight will be applied
 		font-weight: 100;
 	}
+
 }
 
-#bell-icon {
-	width: 2 * $icon-size / 3;
-	height: 2 * $icon-size /3;
-	margin: 1em;
+// Alert dropdown container for bell icon click
+#alert-div {
+	@include flexy(column);
+	position: relative;
+	top: 3em;
+	right: -3em;
+	z-index: 10;
+	width: 35%;
+	padding: 0.5em;
+
+	@include mq(medium) {
+		width: 25%;
+	}
+	@include mq(large) {
+		width: 20%;
+	}
 }
 
-//wraps .profile-photo and #profile-name
+// Container class for individual alerts within #alert-div
+.alert-box {
+	//width: 90%;
+	background-color: $primary-color;
+	color: $text-color-light;
+	font-size: 0.75em;
+	padding: 0.5em;
+	border-bottom: 1px solid $text-color-light;
+}
+
+
+//wraps #profile-photo and #profile-name
 #profile-box {
 	@include flexy(row);
 	align-items: center;
