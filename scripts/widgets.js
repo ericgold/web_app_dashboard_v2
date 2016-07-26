@@ -9,6 +9,7 @@ Chart.defaults.global.responsiveAnimationDuration = 0;
 Chart.defaults.global.maintainAspectRatio = true;
 Chart.defaults.global.legend.display = false;
 
+
 // *** Message User ***
 
 //variables for the message user widget
