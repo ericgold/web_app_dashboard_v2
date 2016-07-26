@@ -7,11 +7,7 @@
   color: #B2B2B2;
   font-size: 0.5em; }
 
-<<<<<<< HEAD
-#message-user, #traffic-bar-box {
-=======
 #message-user, #traffic-bar-box, #traffic-line-nav, #traffic-line {
->>>>>>> widgets
   padding: 1em; }
 
 #bell-container, #main-nav .svg-container {
@@ -262,8 +258,6 @@
 
 .widget-heading {
   text-transform: uppercase; }
-<<<<<<< HEAD
-=======
 
 .nav-icon-active .st0 {
   fill: #fff; }
@@ -286,6 +280,5 @@
 #traffic-line-nav button.traffic-active {
   background-color: #83C891;
   color: #FFFFFF; }
->>>>>>> widgets
 
 /*# sourceMappingURL=application.css.map */
