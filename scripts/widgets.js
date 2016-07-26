@@ -111,6 +111,8 @@ var alertBar = document.getElementById('alert');
 var alertText = document.getElementById('alert-text');
 var alertX = document.getElementById('alert-x');
 
+
+var trafficLineButton = document.getElementsByClassName('traffic-line-button');
 var hourlyButton = document.getElementById('hourly-button');
 var dailyButton = document.getElementById('daily-button');
 var weeklyButton = document.getElementById('weekly-button');

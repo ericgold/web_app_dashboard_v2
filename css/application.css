@@ -238,10 +238,20 @@
   width: 100%;
   height: 1em; }
   #traffic-line-nav button {
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
     color: #B2B2B2;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.5em; }
+    font-size: 0.5em;
+    text-align: center;
+    height: 2em;
+    line-height: 1.5em;
+    width: 8em;
+    margin: 0;
+    padding: 0.25em;
+    border-radius: 10px; }
 
 .widget-heading {
   text-transform: uppercase; }
@@ -263,5 +273,9 @@
   	z-index: 100;
   }
   */ }
+
+#traffic-line-nav button.traffic-active {
+  background-color: #83C891;
+  color: #FFFFFF; }
 
 /*# sourceMappingURL=application.css.map */
