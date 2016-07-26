@@ -30,7 +30,9 @@ var mobileUsersData = {
 				"#76B1BE",
 				"#4D4D71"
 			]
-
+		}
+	]
+}
 
 // Daily Traffic Widget (Bar Chart)
 
