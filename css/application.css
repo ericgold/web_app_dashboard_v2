@@ -7,7 +7,7 @@
   color: #B2B2B2;
   font-size: 0.5em; }
 
-#message-user, #traffic-bar-box {
+#message-user, #traffic-bar-box, #traffic-line-nav, #traffic-line {
   padding: 1em; }
 
 #bell-container, #main-nav .svg-container {
