@@ -291,12 +291,11 @@ var trafficLineData = {
 			pointStyle: 'circle',
 			showLines: true,	
 			data: weeklyData
->>>>>>> widgets
 		}
 	]
 };
 
-<<<<<<< HEAD
+
 var mobileUsersOptions = {
 	legend: {
 		display: true,
@@ -309,7 +308,7 @@ var mobileUserChart = new Chart(mobileUsers, {
 	data: mobileUsersData,
 	options: mobileUsersOptions
 });
-=======
+
 //default options for the traffic line chart, including weekly defaults
 var trafficLineOptions = {
 	scales: {
