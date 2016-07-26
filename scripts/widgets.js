@@ -10,6 +10,28 @@ Chart.defaults.global.maintainAspectRatio = true;
 Chart.defaults.global.legend.display = false;
 
 
+// Mobile User Doughnut Chart
+
+var mobileUsers = document.getElementById('mobile-users');
+
+var mobileUsersData = {
+	labels: [
+		"Desktop",
+		"Tablets",
+		"Phones",
+		"Other"
+	],
+	datasets: [
+		{
+			data: [150, 70, 50, 20],
+			backgroundColor: [
+				"#7379BD",
+				"#83C891",
+				"#76B1BE",
+				"#4D4D71"
+			]
+
+
 // Daily Traffic Widget (Bar Chart)
 
 var trafficDaily = document.getElementById('traffic-bar');
@@ -272,6 +294,19 @@ var trafficLineData = {
 	]
 };
 
+var mobileUsersOptions = {
+	legend: {
+		display: true,
+		position: 'bottom'
+	}
+};
+
+var mobileUserChart = new Chart(mobileUsers, {
+	type: 'doughnut',
+	data: mobileUsersData,
+	options: mobileUsersOptions
+});
+
 //default options for the traffic line chart, including weekly defaults
 var trafficLineOptions = {
 	scales: {
@@ -374,4 +409,3 @@ function hideAlert() {
 
 //event listener for alert bar x
 alertX.addEventListener("click", hideAlert);
-
