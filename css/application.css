@@ -231,6 +231,9 @@
   display: block;
   width: 100%; }
 
+#traffic-bar {
+  margin: 1em 0.5em; }
+
 #traffic-line-nav {
   display: flex;
   flex-direction: row;
