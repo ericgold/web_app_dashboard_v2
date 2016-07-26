@@ -5,7 +5,6 @@
 	@include flexy(column);
 	width: 100%;
 	margin: 0;
-
 	@include mq(medium) {
 		@include flexy(row);
 	}
