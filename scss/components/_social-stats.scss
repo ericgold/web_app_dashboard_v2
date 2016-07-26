@@ -1,0 +1,91 @@
+.social-stat-container {
+	@include flexy(column);
+	justify-content: space-around;
+	margin: auto;
+	.svg-container {
+		@extend %svg-container;
+		margin: auto 1em auto 1em;
+	}
+
+	@include mq(medium) {
+		@include flexy(row);
+		flex-wrap: wrap;
+		
+	}
+
+}
+
+.social-unit {
+	@include flexy(row);
+	width: 90%;
+	max-width: 300px;
+	border: 1px solid $gray;
+	border-radius: 3px;
+	background-color: $gray-light;
+	padding: 1em;
+	margin: 0.5em 1em;
+
+	@include mq(medium) {
+		width: 30%;
+	}
+
+	
+}
+
+.social-count-container {
+	h4 {
+		font-size: 0.75em;
+		color: $primary-color;
+		margin: 0;
+
+	}
+
+	p {
+		font-size: 2em;
+		color: $gray;
+		font-weight: lighter;
+		margin: 0;
+
+	}
+}
+
+#twitter-icon,
+#facebook-icon,
+#google-icon,
+#linkedin-icon,
+#instagram-icon,
+#codepen-icon {
+	@extend %social-icon;
+}
+
+#twitter-path {
+	transform: translate(16px, 18px);
+}
+
+#facebook-path {
+	transform: translate(10px, 10px);
+}
+
+#google-path {
+	transform: translate(17px, 17px);
+}
+
+#linkedin-path {
+	transform: translate(17px, 13px);
+}
+
+#instagram-path {
+	transform: translate(17px, 16px);
+}
+
+#codepen-path {
+	transform: translate(17px, 15px);
+}
+
+
+
+
+
+
+
+

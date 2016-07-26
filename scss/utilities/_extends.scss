@@ -16,7 +16,15 @@
 	padding: 1em;
 }
 
+
 %svg-container {
 	height: 3em;
 	width: 3em;
+}
+
+
+%social-icon {
+	background-color: $primary-color;
+	fill: white;
+	border-radius: 50%;
 }
