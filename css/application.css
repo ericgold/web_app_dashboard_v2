@@ -14,6 +14,16 @@
   height: 3em;
   width: 3em; }
 
+#user-input, #user-message, #message-button {
+  display: block;
+  width: 100%;
+  margin: 1.5em 0;
+  border-radius: 3px;
+  outline: none; }
+
+#user-input:focus, #user-message:focus, #message-button:focus {
+  border: 2px solid #76B1BE; }
+
 .activity-icon, .activity-arrow {
   fill: #7379BD;
   height: 1.5em;
@@ -239,12 +249,60 @@
   #bell-icon .st0 {
     fill: #FFFFFF; }
 
-#message-user input[type="text"] {
-  display: block;
-  width: 100%; }
-#message-user textarea {
-  display: block;
-  width: 100%; }
+#message-user {
+  position: relative; }
+
+#user-input {
+  height: 4em;
+  border: 1px solid #B2B2B2;
+  background-color: #f2f2f2;
+  color: #B2B2B2;
+  font-size: 0.5em;
+  padding: 0 1em; }
+
+#user-message {
+  height: 12em;
+  border: 1px solid #B2B2B2;
+  background-color: #f2f2f2;
+  color: #B2B2B2;
+  font-size: 0.5em;
+  padding: 1em; }
+
+#message-button {
+  height: 4em;
+  background-color: #7379BD;
+  color: #FFFFFF;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  border: none; }
+
+#message-div {
+  box-sizing: border-box;
+  background-color: #76B1BE;
+  position: absolute;
+  top: 2em;
+  left: 6em;
+  border-radius: 3px; }
+
+.message-box {
+  color: #FFFFFF;
+  padding: 1em;
+  font-size: 0.75em;
+  text-align: center; }
+
+#user-div {
+  box-sizing: border-box;
+  background-color: #76B1BE;
+  position: absolute;
+  top: 5em;
+  left: 10em;
+  border-radius: 3px; }
+
+.user-box {
+  color: #FFFFFF;
+  padding: 1em;
+  font-size: 0.75em;
+  text-align: center; }
 
 #new-members {
   padding: 1em; }

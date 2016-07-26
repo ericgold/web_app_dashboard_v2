@@ -22,6 +22,20 @@
 	width: 3em;
 }
 
+%message-user {
+	display: block;
+	width: 100%;
+	margin: 1.5em 0;
+	border-radius: 3px;
+	outline: none;
+}
+
+%focus {
+	&:focus {
+		border: 2px solid $tertiary-color;
+	}
+}	
+
 
 %activity-icon {
 	fill: $primary-color;
