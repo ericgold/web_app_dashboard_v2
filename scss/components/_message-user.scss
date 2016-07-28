@@ -1,13 +1,76 @@
 #message-user {
 	@extend %widget-spacing;
-	
-	input[type="text"] {
-		display: block;
-		width: 100%;
-	}
-
-	textarea {
-		display: block;
-		width: 100%;
-	}
+	position: relative;
 }
+
+#user-input {
+	@extend %message-user;
+	@extend %focus;
+	height: 4em;
+	border: 1px solid $gray;
+	background-color: $gray-light;
+	color: $gray;
+	font-size: 0.5em;
+	padding: 0 1em;
+}
+
+#user-message {
+	@extend %message-user;
+	@extend %focus;
+	height: 12em;
+	border: 1px solid $gray;
+	background-color: $gray-light;
+	color: $gray;
+	font-size: 0.5em;
+	padding: 1em;
+}
+
+#message-button {
+	@extend %message-user;
+	@extend %focus;
+	height: 4em;
+	background-color: $primary-color;
+	color: $text-color-light;
+	font-size: 0.5em;
+	text-transform: uppercase;
+	border: none;
+}
+
+//styles for containers for message-user popups: 
+//errors and send confirm
+#message-div {
+	box-sizing: border-box;
+	background-color: $tertiary-color;
+	position: absolute;
+	top: 2em;
+	left: 6em;
+	border-radius: 3px;
+	//z-index: 1000;
+
+}
+
+.message-box {
+	color: $text-color-light;
+	padding: 1em;
+	font-size: 0.75em;
+	text-align: center;
+}
+
+//styles for user suggestions on search
+#user-div {
+	box-sizing: border-box;
+	background-color: $tertiary-color;
+	position: absolute;
+	top: 5em;
+	left: 10em;
+	border-radius: 3px;
+
+}
+
+.user-box {
+	color: $text-color-light;
+	padding: 1em;
+	font-size: 0.75em;
+	text-align: center;
+}
+
