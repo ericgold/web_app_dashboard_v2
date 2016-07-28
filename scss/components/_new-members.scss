@@ -1,6 +1,8 @@
-#new-members {
-	padding: 1em;
+#new-members-box {
+	@extend %widget-spacing;
+}
 
+#new-members {
 	img {
 		@extend %round-photo;
 		height: 2em;

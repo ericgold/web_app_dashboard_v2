@@ -1,6 +1,8 @@
-#recent-activity {
-	padding: 1em;
+#recent-activity-box {
+	@extend %widget-spacing;
+}
 
+#recent-activity {
 	img {
 		@extend %round-photo;
 		height: 2em;
@@ -43,20 +45,6 @@
 	font-size: 0.5em;
 	margin: 0;
 }
-
-/* removed this button from markup
-.activity-button {
-	height: 1em;
-	width: 1em;
-	padding-right: 1em;
-	padding-bottom: 1em;
-	background-color: #fff;
-	outline: none;
-	border: none;
-	color: $primary-color;
-	margin: auto 0.5em auto auto;
-}
-*/
 
 // Common styles for user, comment, and post icons
 .activity-icon {

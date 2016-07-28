@@ -9,11 +9,9 @@ Chart.defaults.global.responsiveAnimationDuration = 0;
 Chart.defaults.global.maintainAspectRatio = true;
 Chart.defaults.global.legend.display = false;
 
-
-
 // *** SETTINGS WIDGET ***
 
-// local storage
+// settings widget variables
 
 var emailSwitch = document.getElementById("email-switch");
 var emailSetting = emailSwitch.value;
@@ -22,7 +20,6 @@ var publicSwitch = document.getElementById("public-switch");
 var publicSetting = publicSwitch.value;
 
 var timeZoneSelect = document.getElementById("timezone");
-//var timeZoneSetting = timeZoneSelect.value;
 var timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('timeZoneId');
 
 
