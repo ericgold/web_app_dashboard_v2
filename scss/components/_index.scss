@@ -10,5 +10,6 @@
 
 .widget-heading {
 	@extend %heading;
+	display: block;
 	text-transform: uppercase;
 }
