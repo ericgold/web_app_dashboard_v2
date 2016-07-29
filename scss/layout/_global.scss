@@ -3,21 +3,33 @@
 	//border: 1px solid pink;
 }
 
+body {
+	height: 100%;
+}
+
+
 //contains all layout 
 
 .outer-container {
 	@include flexy(column);
 	max-width: 1024px;
+	margin: auto;
+	height: 100%;
 }
 
-//contains nav and widgets but not header
+//contains nav and widgets but not header;
+//allows horizontal nav bar on mobile, vertical at medium break and up
 
 .inner-container {
 	@include flexy(column);
 	height: 100%;
 
+
 	@include mq(medium) {
 		flex-direction: row;
+		
+		height: 100%;
+
 	}
 }
 
@@ -28,5 +40,9 @@
 	height: 100%;
 	margin: 0;
 	width: 100%;
+
+	@include mq(medium) {
+		width: calc(100% - 4em);
+	}
 }
 

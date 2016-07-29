@@ -1,0 +1,109 @@
+#settings {
+	padding: 1em;
+
+}
+
+.switch-row {
+	@include flexy(row);
+	//justify-content: flex-end;
+	margin: 1.25em 25% 1.25em 0;
+}
+
+.switch-ios.switch-light {
+	display: inline;
+	font-size: 0.75em;
+	width: 100%;
+
+	strong {
+		color: $gray;
+	}
+}
+
+
+.switch-ios.switch-light > span {
+	width: 6em;
+	text-transform: uppercase;
+}
+
+#lightswitch-email {
+	margin-left: 2em;
+	@include mq(medium) {
+		margin-left: 5em;
+	}
+}
+
+#lightswitch-public {
+	margin-left: 4em;
+	@include mq(medium) {
+		margin-left: 7em;
+	}
+}
+
+.switch-ios.switch-light span {
+	display: inline-block;
+}
+
+
+.switch-ios.switch-light input:checked ~ span a {
+	border-color: $primary-color;
+}
+
+.switch-ios.switch-light input:checked ~ span {
+    border-color: $primary-color;
+    box-shadow: inset 0 0 0 30px $primary-color; 
+}
+
+#timezone {
+	display: block;
+	width: 100%;
+	height: 3em;
+	background-color: $gray-light;
+	margin: 3.25em 0 1.25em 0;
+	border: $gray;
+	font-size: 0.75em;
+	color: $gray;
+	outline: none;
+
+	&:focus {
+		border: 3px solid $secondary-color;
+	}
+}
+
+#button-row {
+	@include flexy(row);
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 1em;
+}
+
+#save-settings-button,
+#cancel-settings-button {
+	display: inline-block;
+	height: 4em;
+	margin: 0.5em 0;
+	width: 47%;
+	padding: 1em;
+	font-size: 0.5em;
+	color: $text-color-light;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 3px;
+	outline: none;
+}
+
+#save-settings-button {
+	background-color: $primary-color;
+
+	&:focus {
+		border: 3px solid $secondary-color;
+	}
+}
+
+#cancel-settings-button {
+	background-color: $gray;
+
+	&:focus {
+		border: 3px solid $secondary-color;
+	}
+}
+

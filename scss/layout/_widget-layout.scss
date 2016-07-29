@@ -1,12 +1,25 @@
+/* container to wrap widget rows, allowing full width at small screens and 
+	side-by-side half-width at tablet size and up */
+
 .widget-section-full {
 	@include flexy(column);
 	width: 100%;
 	margin: 0;
-
 	@include mq(medium) {
 		@include flexy(row);
 	}
 }
+
+/* special case for traffic line, so it will be full width at all screen sizes 
+	and will not switch to row */
+
+.widget-section-col {
+	@include flexy(column);
+	width: 100%;
+	margin: 0;
+}
+
+/* container for widgets that take up half width at tablet size and up */
 
 .widget-section-half {
 	width: 100%;
@@ -34,7 +47,6 @@
 	color: $gray;
 	font-weight: lighter;
 	margin: 0;
-	margin-right: auto;
 	padding: 0 1em; 
 }
 
@@ -42,29 +54,25 @@
 	width: 50%;
 	max-width: 18em;
 	height: 1.75em;
-	margin: auto 1em;
-	border: 1px solid $gray;
+	margin: auto 1em auto auto;
 	border-radius: 4px;
-	
-
+	border: 1px solid $gray-light;
+	padding-left: 1em;
+	color: $gray;
 }
-
-
 
 #alert {
 	@include flexy(row);
 	height: 1.75em;
 	background-color: $primary-color;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-	margin-left: 1em;
-	margin-right: 1em;
+	margin: 1.25em 1em 0.75em 1em;
 	color: $text-color-light;
-	border-radius: 4px;
+	border-radius: 3px;
 
 	h4 {
 		display: inline-block;
 		font-size: 0.6em;
+		margin: auto 0.75em auto 1em;
 		
 	}
 
@@ -72,7 +80,7 @@
 		display: inline-block;
 		font-size: 0.6em;
 		font-weight: lighter;
-		margin-right: auto;
+		margin: auto auto auto 0;
 	}
 
 	a {
@@ -80,6 +88,7 @@
 		text-decoration: none;
 		font-size: 0.75em;
 		color: $text-color-light;
+		margin: auto 0.5em auto 0;
 		
 	}
 }
