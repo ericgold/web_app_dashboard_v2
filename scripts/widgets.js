@@ -31,16 +31,16 @@ function saveSettings() {
 	localStorage.setItem('email', emailSetting);
 	localStorage.setItem('publicpro', publicSetting);
 	localStorage.setItem('tzone', timeZoneSetting);
-	console.log(localStorage);
+	//console.log(localStorage);
 }
 
 //clears local storage and sets controls to defaults
 function resetSettings() {
-	console.log("clearing storage");
+	//console.log("clearing storage");
 	localStorage.clear();
-	console.log("setting defaults");
+	//console.log("setting defaults");
 	setDefaultSettings();
-	console.log(localStorage);
+	//console.log(localStorage);
 }
 
 //sets variable to the value of the switch
@@ -86,7 +86,7 @@ function restoreTimeZone() {
 	}
 	timeZoneSelect.options[timeZoneSetting - 1].setAttribute("selected", "selected");
 
-	console.log(timeZoneSetting);
+	//console.log(timeZoneSetting);
 }
 
 
@@ -113,14 +113,14 @@ function setDefaultEmail() {
 //otherwise, sets to default value
 function checkForEmail() {
 	if (localStorage.email) {
-		console.log("email detected");
+		//console.log("email detected");
 		emailSwitch.value = localStorage.getItem("email");
 		emailSetting = emailSwitch.value;
 		emailSwitch.setAttribute("value", emailSetting);
 		matchEmail();
 
 	} else {
-		console.log("no email detected");
+		//console.log("no email detected");
 		setDefaultEmail();
 	}
 }
@@ -147,21 +147,21 @@ function setDefaultPublic() {
 //otherwise, sets to default value
 function checkForPublic() {
 	if (localStorage.publicpro) {
-		console.log("public detected");
+		//console.log("public detected");
 		publicSwitch.value = localStorage.getItem("publicpro");
 		publicSetting = publicSwitch.value;
 		publicSwitch.setAttribute("value", publicSetting);
 		matchPublic();
 		
 	} else {
-		console.log("no public detected");
+		//console.log("no public detected");
 		setDefaultPublic();
 	}
 }
 
 //sets default time zone of Pacific
 function setDefaultTimeZone() {
-	console.log("setting default time zone");
+	//console.log("setting default time zone");
 	timeZoneSelect.value = "-8";
 	//timeZoneSetting = timeZoneSelect.value;
 	//timeZoneIdSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('timeZoneId');
@@ -172,15 +172,15 @@ function setDefaultTimeZone() {
 //if present, sets time zone to stored value
 //otherwise, sets default time zone
 function checkForTimeZone() {
-	console.log("checking for time zone");
+	//console.log("checking for time zone");
 	if (localStorage.tzone) {
-		console.log("time zone detected");
+		//console.log("time zone detected");
 		//timeZoneSelect.value = localStorage.getItem("tzone");
 		//timeZoneSetting = timeZoneSelect.value;
 		timeZoneSetting = localStorage.getItem("tzone");
 		restoreTimeZone();
 	} else {
-		console.log("no time zone detected");
+		//console.log("no time zone detected");
 		setDefaultTimeZone();
 	}
 }
@@ -201,14 +201,14 @@ function setDefaultSettings() {
 
 // checks to see if local storage is supported
 function checkLocalStorage() {
-	console.log("checking local storage");
+	//console.log("checking local storage");
 	//check if local storage is supported
 	if (window.localStorage){
-		console.log("storage detected");
+		//console.log("storage detected");
 		checkForSettings();
 		
 	} else {
-		console.log("no storage detected");
+		//console.log("no storage detected");
 		setDefaultSettings();
 	}
 }
@@ -297,7 +297,8 @@ function showUserDiv() {
 //remove user suggestions
 function removeUserDiv() {
 	clearUserDiv();
-	messageUserWidget.removeChild(userDiv);
+	//messageUserWidget.removeChild(userDiv);
+	userDiv.remove();
 	matchedUsers = [];
 	matchedUsers.length = 0;
 }
@@ -306,6 +307,7 @@ function clearUserDiv() {
 	while (userDiv.firstChild) {
 		userDiv.removeChild(userDiv.firstChild);
 	}
+	matchedUsers = [];
 }
 
 // enter selected suggestion into input field and remove suggestions
@@ -330,14 +332,10 @@ function matchUsers(arg) {
 			if (firstIndex !== -1 || lastIndex !== -1) {
 				//add that user to matchedUsers
 				matchedUsers.push(users[i]);
-				
-			//otherwise	
-			} else {
-				//remove that user from matchedUsers
-				matchedUsers.pop(users[i]);
-			}
+			} 
 		}
 }
+
 
 function addMatchedUsers() {
 	//for each user in matchedUsers
@@ -352,6 +350,7 @@ function userSearch() {
 	var query = userInput.value.toLowerCase();
 	//if there is a query
 	if(query) {
+		console.log(matchedUsers);
 		//clear any existing match results
 		clearUserDiv();
 		//check for users matching the query

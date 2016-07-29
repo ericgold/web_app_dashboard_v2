@@ -62,6 +62,9 @@
   height: 100%;
   margin: 0;
   width: 100%; }
+  @media (min-width: 768px) {
+    .widget-container {
+      width: calc(100% - 4em); } }
 
 #main-header {
   display: flex;

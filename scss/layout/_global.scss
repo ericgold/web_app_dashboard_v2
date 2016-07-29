@@ -18,6 +18,7 @@
 	@include flexy(column);
 	height: 100%;
 
+
 	@include mq(medium) {
 		flex-direction: row;
 	}
@@ -30,5 +31,9 @@
 	height: 100%;
 	margin: 0;
 	width: 100%;
+
+	@include mq(medium) {
+		width: calc(100% - 4em);
+	}
 }
 
