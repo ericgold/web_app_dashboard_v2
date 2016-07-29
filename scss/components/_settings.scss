@@ -1,11 +1,12 @@
 #settings {
 	padding: 1em;
+
 }
 
 .switch-row {
 	@include flexy(row);
 	//justify-content: flex-end;
-	margin: 1.25em 40% 1.25em 0;
+	margin: 1.25em 25% 1.25em 0;
 }
 
 .switch-ios.switch-light {
@@ -25,11 +26,17 @@
 }
 
 #lightswitch-email {
-	margin-left: 5em;
+	margin-left: 2em;
+	@include mq(medium) {
+		margin-left: 5em;
+	}
 }
 
 #lightswitch-public {
-	margin-left: 7em;
+	margin-left: 4em;
+	@include mq(medium) {
+		margin-left: 7em;
+	}
 }
 
 .switch-ios.switch-light span {

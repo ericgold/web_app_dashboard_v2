@@ -42,11 +42,15 @@
 * {
   box-sizing: border-box; }
 
+body {
+  height: 100%; }
+
 .outer-container {
   display: flex;
   flex-direction: column;
   max-width: 1024px;
-  margin: auto; }
+  margin: auto;
+  height: 100%; }
 
 .inner-container {
   display: flex;
@@ -54,7 +58,8 @@
   height: 100%; }
   @media (min-width: 768px) {
     .inner-container {
-      flex-direction: row; } }
+      flex-direction: row;
+      height: 100%; } }
 
 .widget-container {
   display: flex;
@@ -134,21 +139,21 @@
 #main-nav {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   height: 4em;
   width: 100%;
   background-color: #4D4D71;
   padding-top: 0.25em; }
+  @media (min-width: 768px) {
+    #main-nav {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 4em; } }
   #main-nav .svg-container {
     margin: auto; }
     @media (min-width: 768px) {
       #main-nav .svg-container {
         margin: 0.25em auto; } }
-  @media (min-width: 768px) {
-    #main-nav {
-      flex-direction: column;
-      height: 100vh;
-      width: 4em; } }
 
 /* container to wrap widget rows, allowing full width at small screens and 
 	side-by-side half-width at tablet size and up */
@@ -239,12 +244,15 @@
   .nav-icon .st0 {
     fill: #B2B2B2; }
 
-#settings-icon {
-  margin-right: auto; }
-  @media (min-width: 768px) {
-    #settings-icon {
-      margin-bottom: auto; } }
+/*
+#settings-icon-container {
+	margin-right: auto;
 
+	@include mq(medium) {
+		margin-bottom: auto;
+	}
+}
+*/
 #bell-icon {
   width: 1em;
   height: 1em;
@@ -389,7 +397,7 @@
 .switch-row {
   display: flex;
   flex-direction: row;
-  margin: 1.25em 40% 1.25em 0; }
+  margin: 1.25em 25% 1.25em 0; }
 
 .switch-ios.switch-light {
   display: inline;
@@ -403,10 +411,16 @@
   text-transform: uppercase; }
 
 #lightswitch-email {
-  margin-left: 5em; }
+  margin-left: 2em; }
+  @media (min-width: 768px) {
+    #lightswitch-email {
+      margin-left: 5em; } }
 
 #lightswitch-public {
-  margin-left: 7em; }
+  margin-left: 4em; }
+  @media (min-width: 768px) {
+    #lightswitch-public {
+      margin-left: 7em; } }
 
 .switch-ios.switch-light span {
   display: inline-block; }
