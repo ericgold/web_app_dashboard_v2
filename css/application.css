@@ -202,7 +202,7 @@
       -webkit-flex-direction: column;
       flex-direction: column;
       height: auto;
-      min-height: 100vh;
+      min-height: 1850px;
       width: 4em; } }
   #main-nav .svg-container {
     margin: auto; }
