@@ -170,6 +170,7 @@ function saveSettings() {
 
 //clears local storage and sets controls to defaults
 function resetSettings() {
+	console.log("reset");
 	localStorage.clear();
 	setDefaultSettings();
 }
@@ -178,11 +179,11 @@ function resetSettings() {
 function updateSwitch(switchTarget) {
 	if (switchTarget.value === "on") {
 		switchTarget.value = "off";
-		//switchTarget.setAttribute("value", "off");
+		switchTarget.setAttribute("value", "off");
 		switchTarget.setAttribute("checked", false);
 	} else {
 		switchTarget.value = "on";
-		//switchTarget.setAttribute("value", "on")
+		switchTarget.setAttribute("value", "on")
 		switchTarget.setAttribute("checked", true);
 	}
 }
@@ -226,7 +227,7 @@ function matchEmail() {
 function setDefaultEmail() {
 	emailSwitch.value = "on";
 	emailSetting = emailSwitch.value;
-	//emailSwitch.setAttribute("value", emailSetting);
+	emailSwitch.setAttribute("value", emailSetting);
 	matchEmail();
 }
 
@@ -258,7 +259,7 @@ function matchPublic() {
 function setDefaultPublic() {
 	publicSwitch.value = "on";
 	publicSetting = publicSwitch.value;
-	//publicSwitch.setAttribute("value", publicSetting);
+	publicSwitch.setAttribute("value", publicSetting);
 	matchPublic();
 }
 
@@ -280,6 +281,7 @@ function checkForPublic() {
 //sets default time zone of Pacific
 function setDefaultTimeZone() {
 	timeZoneSelect.value = "-8";
+	updateTimeZone();
 }
 
 //checks for time zone in local storage
