@@ -156,7 +156,7 @@ var publicSwitch = document.getElementById("public-switch");
 var publicSetting = publicSwitch.value;
 
 var timeZoneSelect = document.getElementById("timezone");
-var timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('data-tzone');
+var timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute("data-tzone");
 
 var saveSettingsButton = document.getElementById("save-settings-button");
 var cancelSettingsButton = document.getElementById("cancel-settings-button");
@@ -217,7 +217,7 @@ function restoreTimeZone() {
 //matches switch "checked" attribute to value state
 function matchEmail() {
 	if (emailSetting === "on") {
-			emailSwitch.setAttribute("checked", "checked");
+			emailSwitch.setAttribute("checked", true);
 		} else if (emailSetting === "off") {
 			emailSwitch.removeAttribute("checked");
 	}
@@ -225,6 +225,7 @@ function matchEmail() {
 
 //sets default value of email switch to "on"
 function setDefaultEmail() {
+
 	emailSwitch.value = "on";
 	emailSetting = emailSwitch.value;
 	emailSwitch.setAttribute("value", emailSetting);
@@ -249,7 +250,7 @@ function checkForEmail() {
 //matches switch "checked" attribute to value state
 function matchPublic() {
 	if (publicSetting === "on") {
-			publicSwitch.setAttribute("checked", "checked");
+			publicSwitch.setAttribute("checked", true);
 		} else if (publicSetting === "off") {
 			publicSwitch.removeAttribute("checked");
 		}
