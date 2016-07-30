@@ -127,8 +127,8 @@ var alertX = document.getElementById('alert-x');
 
 // transfer alert from bar to dropdown
 function moveAlert() {
-	alertBox3 = document.createElement("div");
-	alert3 = alertText.textContent;
+	var alertBox3 = document.createElement("div");
+	var alert3 = alertText.textContent;
 	alertBox3.classList.add("alert-box");
 	alertBox3.textContent = alert3;
 	alertDiv.appendChild(alertBox3);
@@ -183,7 +183,7 @@ function updateSwitch(switchTarget) {
 		switchTarget.setAttribute("checked", false);
 	} else {
 		switchTarget.value = "on";
-		switchTarget.setAttribute("value", "on")
+		switchTarget.setAttribute("value", "on");
 		switchTarget.setAttribute("checked", true);
 	}
 }
