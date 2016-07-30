@@ -11,6 +11,7 @@
 // Breakpoint Variables
 
 $brkpoint-sm: 1px;
+$brkpoint-sm-md: 480px;
 $brkpoint-md: 768px;
 $brkpoint-lg: 1024px;
 
@@ -19,6 +20,11 @@ $brkpoint-lg: 1024px;
 @mixin mq($break) {
 	@if $break == "small" {
 		@media(min-width: $brkpoint-sm) and (max-width: $brkpoint-md -1) {
+			@content;
+		}
+	}
+	@else if $break == "small-medium" {
+		@media(min-width: $brkpoint-sm-md) {
 			@content;
 		}
 	}
