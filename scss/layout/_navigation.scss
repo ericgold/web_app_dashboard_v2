@@ -1,6 +1,8 @@
 #main-nav {
 	@include flexy(row);
 	height: 4em;
+	//added for Safari
+	min-height: 4em;
 	width: 100%;
 	background-color: $primary-dark;
 	padding-top: 0.25em;
@@ -8,6 +10,8 @@
 	@include mq(medium) {
 		@include flexy(column);
 		height: auto;
+		//added for Safari
+		min-height: 100vh;
 		width: 4em;
 	}
 
@@ -19,8 +23,6 @@
 			margin: 0.25em auto; 
 		}
 	}	
-
-	
 }
 
 

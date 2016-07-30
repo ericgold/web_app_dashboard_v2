@@ -33,12 +33,16 @@
 .widget-container {
 	@include flexy(column);
 	height: 100%;
+	//needed for Safari
+	min-height: 2750px;
 	margin: 0;
 	width: 100%;
 
 	@include mq(medium) {
 		//accounts for the width of main-nav when vertical
 		width: calc(100% - 4em);
+		//needed for Safari
+		min-height: 0;
 	}
 }
 
