@@ -80,12 +80,13 @@
   -webkit-flex-direction: column;
   flex-direction: column;
   height: 100%;
-  min-height: auto;
+  min-height: 2750px;
   margin: 0;
   width: 100%; }
   @media (min-width: 768px) {
     .widget-container {
-      width: calc(100% - 4em); } }
+      width: calc(100% - 4em);
+      min-height: 0; } }
 
 #main-header {
   display: -webkit-box;
