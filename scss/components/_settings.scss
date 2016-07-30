@@ -17,7 +17,6 @@
 	}
 }
 
-
 .switch-ios.switch-light > span {
 	width: 6em;
 	text-transform: uppercase;
@@ -26,7 +25,7 @@
 #lightswitch-email {
 	margin-left: 2em;
 	@include mq(medium) {
-		margin-left: 5em;
+		margin-left: 4.8em;
 	}
 }
 

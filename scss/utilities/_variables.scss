@@ -3,6 +3,7 @@ $secondary-color: #83C891;
 $tertiary-color: #76B1BE;
 
 $gray: #B2B2B2;
+$alabaster: #FBFBFB;
 $white: #FFFFFF;
 $dark-purple: #4D4D71;
 $lavender: #E2E3F5;
@@ -10,7 +11,7 @@ $lavender: #E2E3F5;
 $primary-dark: $dark-purple;
 $primary-light: $lavender;
 
-$gray-light: lighten($gray, 25%);
+$gray-light: $alabaster;
 $gray-dark: darken($gray, 30%);
 
 $text-color-default: $gray;
