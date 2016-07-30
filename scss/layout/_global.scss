@@ -1,12 +1,6 @@
 * {
 	box-sizing: border-box;
-	//border: 1px solid pink;
 }
-
-body {
-	height: 100%;
-}
-
 
 //contains all layout 
 
@@ -15,6 +9,8 @@ body {
 	max-width: 1024px;
 	margin: auto;
 	height: 100%;
+	font-family: $font-primary, sans-serif;
+	font-weight: $font-weight-normal;
 }
 
 //contains nav and widgets but not header;
@@ -24,16 +20,14 @@ body {
 	@include flexy(column);
 	height: 100%;
 
-
 	@include mq(medium) {
 		flex-direction: row;
-		
 		height: 100%;
-
 	}
 }
 
 //contains all widgets 
+//shares .inner-container with #main-nav
 
 .widget-container {
 	@include flexy(column);
@@ -42,6 +36,7 @@ body {
 	width: 100%;
 
 	@include mq(medium) {
+		//accounts for the width of main-nav when vertical
 		width: calc(100% - 4em);
 	}
 }

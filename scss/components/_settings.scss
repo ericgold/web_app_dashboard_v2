@@ -1,12 +1,10 @@
 #settings {
 	padding: 1em;
-
 }
 
 .switch-row {
 	@include flexy(row);
-	//justify-content: flex-end;
-	margin: 1.25em 25% 1.25em 0;
+	margin: 1.25em 0 1.25em 0;
 }
 
 .switch-ios.switch-light {

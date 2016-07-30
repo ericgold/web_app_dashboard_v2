@@ -1,3 +1,12 @@
+// GLOBAL VARIABLES
+
+var primaryColor = '#7379BD';
+var secondaryColor = '#83C891';
+var tertiaryColor = '#76B1BE';
+var primaryColorDark = '#4D4D71';
+var primaryColorLight = '#E2E3F5';
+
+
 // GLOBAL CHART.JS CONFIGURATIONS
 
 Chart.defaults.global.defaultFontColor = 'gray';
@@ -9,7 +18,134 @@ Chart.defaults.global.responsiveAnimationDuration = 0;
 Chart.defaults.global.maintainAspectRatio = true;
 Chart.defaults.global.legend.display = false;
 
-// *** SETTINGS WIDGET ***
+
+// ***************************
+// ***** MAIN NAVIGATION *****
+// ***************************
+
+var navButton = document.getElementsByClassName("nav-icon");
+var dashboardIcon = document.getElementById("dashboard-icon");
+var membersIcon = document.getElementById("members-icon");
+var visitsIcon = document.getElementById("visits-icon");
+var settingsIcon = document.getElementById("settings-icon");
+
+function toggleNavActive() {
+	
+	for (var i=0; i<navButton.length; i++){
+		if (navButton[i].classList.contains("nav-icon-active")) {
+			navButton[i].classList.remove("nav-icon-active");
+		}
+	}
+
+	for (i=0; i<navButton.length; i++){
+		if (navButton[i].parentNode.classList.contains("nav-container-active")) {
+			navButton[i].parentNode.classList.remove("nav-container-active");
+		}
+	}
+	this.classList.add("nav-icon-active");
+	this.parentNode.classList.add("nav-container-active");
+	
+	
+}
+
+dashboardIcon.addEventListener("click", toggleNavActive);
+membersIcon.addEventListener("click", toggleNavActive);
+visitsIcon.addEventListener("click", toggleNavActive);
+settingsIcon.addEventListener("click", toggleNavActive);
+
+// ******************
+// ***** ALERTS *****
+// ******************
+
+// Variables for alert display
+var mainHeader = document.getElementById("main-header");
+
+//the alert dropdown container
+var alertDiv = document.createElement("div");
+
+//individual alerts in the dropdown
+var alertBox1 = document.createElement("div");
+var alertBox2 = document.createElement("div");
+
+var bellContainer = document.getElementById("bell-container");
+var bellIcon = document.getElementById("bell-icon");
+
+//contents for the sample alerts
+var alert1 = "Ashley Pike signed up";
+var alert2 = "Hart Love commented";
+
+//variables for green dot on bell icon
+var newNotification = true;
+
+function showDot() {
+	if (newNotification) {
+		bellContainer.classList.add("notification");
+	} else {
+		bellContainer.classList.remove("notification");
+	}
+}
+
+document.addEventListener("DOMContentLoaded", showDot);
+
+// set up alert div with two alert boxes inside
+
+function setupAlertDiv() {
+	alertDiv.setAttribute("id", "alert-div");
+
+	alertBox1.classList.add("alert-box");
+	alertBox1.textContent = alert1;
+	alertDiv.appendChild(alertBox1);
+
+	alertBox2.classList.add("alert-box");
+	alertBox2.textContent = alert2;
+	alertDiv.appendChild(alertBox2);
+}
+
+// insert alert div into main header before the bell container
+function dropAlertDiv() {
+	setupAlertDiv();
+	mainHeader.insertBefore(alertDiv, bellContainer);
+}
+
+// remove alert div from the main header
+function hideAlertDiv() {
+	mainHeader.removeChild(alertDiv);
+	newNotification = false;
+	showDot();
+}
+
+// event listeners for adding and removing the alert div
+bellIcon.addEventListener("click", dropAlertDiv);
+alertDiv.addEventListener("click", hideAlertDiv);
+
+//*** Alert Bar Cancel ***
+
+// variables for alert bar cancel
+var alertBar = document.getElementById('alert');
+var alertText = document.getElementById('alert-text');
+var alertX = document.getElementById('alert-x');
+
+// transfer alert from bar to dropdown
+function moveAlert() {
+	alertBox3 = document.createElement("div");
+	alert3 = alertText.textContent;
+	alertBox3.classList.add("alert-box");
+	alertBox3.textContent = alert3;
+	alertDiv.appendChild(alertBox3);
+}
+
+// remove alert bar
+function hideAlert() {
+	moveAlert();
+	alertBar.style.display = "none";
+}
+
+//event listener for alert bar x
+alertX.addEventListener("click", hideAlert);
+
+// ***************************
+// ***** SETTINGS WIDGET *****
+// ***************************
 
 // settings widget variables
 
@@ -20,8 +156,7 @@ var publicSwitch = document.getElementById("public-switch");
 var publicSetting = publicSwitch.value;
 
 var timeZoneSelect = document.getElementById("timezone");
-var timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('timeZoneId');
-
+var timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('data-tzone');
 
 var saveSettingsButton = document.getElementById("save-settings-button");
 var cancelSettingsButton = document.getElementById("cancel-settings-button");
@@ -31,65 +166,52 @@ function saveSettings() {
 	localStorage.setItem('email', emailSetting);
 	localStorage.setItem('publicpro', publicSetting);
 	localStorage.setItem('tzone', timeZoneSetting);
-	//console.log(localStorage);
 }
 
 //clears local storage and sets controls to defaults
 function resetSettings() {
-	//console.log("clearing storage");
 	localStorage.clear();
-	//console.log("setting defaults");
 	setDefaultSettings();
-	//console.log(localStorage);
 }
 
-//sets variable to the value of the switch
-function updateEmail() {
-	if (emailSwitch.value === "on") {
-		emailSwitch.value = "off";
-		emailSwitch.setAttribute("value", "off");
-		emailSwitch.setAttribute("checked", false);
+//toggle switch value and checked state
+function updateSwitch(switchTarget) {
+	if (switchTarget.value === "on") {
+		switchTarget.value = "off";
+		//switchTarget.setAttribute("value", "off");
+		switchTarget.setAttribute("checked", false);
 	} else {
-		emailSwitch.value = "on";
-		emailSwitch.setAttribute("value", "on")
-		emailSwitch.setAttribute("checked", true);
+		switchTarget.value = "on";
+		//switchTarget.setAttribute("value", "on")
+		switchTarget.setAttribute("checked", true);
 	}
+}
+
+//sets setting variable to the value of the switch
+function updateEmail() {
+	updateSwitch(emailSwitch);
 	emailSetting = emailSwitch.value;
 }
 
-//sets variable to the value of the switch
+//sets setting variable to the value of the switch
 function updatePublic() {
-	if (publicSwitch.value === "on") {
-		publicSwitch.value = "off";
-		publicSwitch.setAttribute("value", "off");
-		publicSwitch.setAttribute("checked", false);
-	} else {
-		publicSwitch.value = "on";
-		publicSwitch.setAttribute("value", "on")
-		publicSwitch.setAttribute("checked", true);
-	}
+	updateSwitch(publicSwitch);
 	publicSetting = publicSwitch.value;
-	
 }
 
 //sets variable to value of the select
 function updateTimeZone() {
-	timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('timeZoneId');	
+	timeZoneSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('data-tzone');	
 }
 
 function restoreTimeZone() {
-	
 		for (var i=0; i < timeZoneSelect.options.length; i++) {
 		if (timeZoneSelect.options[i].hasAttribute("selected")) {
 			timeZoneSelect.options[i].removeAttribute("selected");
 		} 
 	}
 	timeZoneSelect.options[timeZoneSetting - 1].setAttribute("selected", "selected");
-
-	//console.log(timeZoneSetting);
 }
-
-
 
 //matches switch "checked" attribute to value state
 function matchEmail() {
@@ -104,7 +226,7 @@ function matchEmail() {
 function setDefaultEmail() {
 	emailSwitch.value = "on";
 	emailSetting = emailSwitch.value;
-	emailSwitch.setAttribute("value", emailSetting);
+	//emailSwitch.setAttribute("value", emailSetting);
 	matchEmail();
 }
 
@@ -113,14 +235,12 @@ function setDefaultEmail() {
 //otherwise, sets to default value
 function checkForEmail() {
 	if (localStorage.email) {
-		//console.log("email detected");
 		emailSwitch.value = localStorage.getItem("email");
 		emailSetting = emailSwitch.value;
 		emailSwitch.setAttribute("value", emailSetting);
 		matchEmail();
 
 	} else {
-		//console.log("no email detected");
 		setDefaultEmail();
 	}
 }
@@ -138,7 +258,7 @@ function matchPublic() {
 function setDefaultPublic() {
 	publicSwitch.value = "on";
 	publicSetting = publicSwitch.value;
-	publicSwitch.setAttribute("value", publicSetting);
+	//publicSwitch.setAttribute("value", publicSetting);
 	matchPublic();
 }
 
@@ -147,40 +267,29 @@ function setDefaultPublic() {
 //otherwise, sets to default value
 function checkForPublic() {
 	if (localStorage.publicpro) {
-		//console.log("public detected");
 		publicSwitch.value = localStorage.getItem("publicpro");
 		publicSetting = publicSwitch.value;
 		publicSwitch.setAttribute("value", publicSetting);
 		matchPublic();
 		
 	} else {
-		//console.log("no public detected");
 		setDefaultPublic();
 	}
 }
 
 //sets default time zone of Pacific
 function setDefaultTimeZone() {
-	//console.log("setting default time zone");
 	timeZoneSelect.value = "-8";
-	//timeZoneSetting = timeZoneSelect.value;
-	//timeZoneIdSetting = timeZoneSelect.options[timeZoneSelect.selectedIndex].getAttribute('timeZoneId');
-	
 }
 
 //checks for time zone in local storage
 //if present, sets time zone to stored value
 //otherwise, sets default time zone
 function checkForTimeZone() {
-	//console.log("checking for time zone");
 	if (localStorage.tzone) {
-		//console.log("time zone detected");
-		//timeZoneSelect.value = localStorage.getItem("tzone");
-		//timeZoneSetting = timeZoneSelect.value;
 		timeZoneSetting = localStorage.getItem("tzone");
 		restoreTimeZone();
 	} else {
-		//console.log("no time zone detected");
 		setDefaultTimeZone();
 	}
 }
@@ -201,14 +310,10 @@ function setDefaultSettings() {
 
 // checks to see if local storage is supported
 function checkLocalStorage() {
-	//console.log("checking local storage");
 	//check if local storage is supported
 	if (window.localStorage){
-		//console.log("storage detected");
 		checkForSettings();
-		
 	} else {
-		//console.log("no storage detected");
 		setDefaultSettings();
 	}
 }
@@ -224,7 +329,10 @@ cancelSettingsButton.addEventListener("click", resetSettings);
 
 window.addEventListener("load", checkLocalStorage);
 
-// *** Message User ***
+
+// *******************************
+// ***** MESSAGE USER WIDGET *****
+// *******************************
 
 //variables for the message user widget
 var messageUserWidget = document.getElementById("message-user");
@@ -272,7 +380,6 @@ var messageError = "Please enter a message";
 var sendConfirm = "Message sent";
 
 
-
 //* functions for user search and suggestions *
 
 //create a div to hold the list of suggestions
@@ -287,7 +394,6 @@ function setupUserBox(suggestion) {
 	userBox.textContent = suggestion.firstName + " " + suggestion.lastName;
 	userDiv.appendChild(userBox);
 }
-
 
 //display the list of suggested users based on search term
 function showUserDiv() {
@@ -323,7 +429,6 @@ function activateSelect() {
 }
 
 function matchUsers(arg) {
-	
 	//check each user in users
 	for (var i = 0; i < users.length; i++) {
 			var firstIndex = users[i].firstName.toLowerCase().indexOf(arg);
@@ -336,7 +441,6 @@ function matchUsers(arg) {
 		}
 }
 
-
 function addMatchedUsers() {
 	//for each user in matchedUsers
 	for (var i = 0; i < matchedUsers.length; i++) {
@@ -345,12 +449,10 @@ function addMatchedUsers() {
 		}
 }
 
-
 function userSearch() {
 	var query = userInput.value.toLowerCase();
 	//if there is a query
 	if(query) {
-		console.log(matchedUsers);
 		//clear any existing match results
 		clearUserDiv();
 		//check for users matching the query
@@ -367,7 +469,7 @@ function userSearch() {
 	}
 }
 
-// *functions for checking if fields are filled*
+//* functions for checking if fields are filled *
 
 //* functions for error and confirmation messages *
 // adds id to messageDiv for styling
@@ -432,6 +534,7 @@ function hideMessage() {
 }
 
 //* event listeners for message user widget *
+
 //checks if a user to message has been chosen on send attempt
 messageButton.addEventListener("click", userCheck);
 //suggests matching users on input
@@ -442,7 +545,9 @@ messageDiv.addEventListener("click", hideMessage);
 userDiv.addEventListener("mouseover", activateSelect);
 
 
-// Mobile User Doughnut Chart
+// ******************************
+// ***** MOBILE USER WIDGET *****
+// ******************************
 
 var mobileUsers = document.getElementById('mobile-users');
 
@@ -457,16 +562,18 @@ var mobileUsersData = {
 		{
 			data: [150, 70, 50, 20],
 			backgroundColor: [
-				"#7379BD",
-				"#83C891",
-				"#76B1BE",
-				"#4D4D71"
+				primaryColor,
+				secondaryColor,
+				tertiaryColor,
+				primaryColorDark
 			]
 		}
 	]
-}
+};
 
-// Daily Traffic Widget (Bar Chart)
+// ********************************
+// ***** DAILY TRAFFIC WIDGET *****
+// ********************************
 
 var trafficDaily = document.getElementById('traffic-bar');
 
@@ -475,24 +582,24 @@ var trafficDailyData = {
 		datasets: [ 
 			{
 				label: 'Desktop',
-				backgroundColor: '#7379BD',
+				backgroundColor: primaryColor,
 				data: [75, 100, 175, 125, 225, 200, 100],
 			},
 
 			{
 				label: 'Tablets',
-				backgroundColor: '#83C891',
+				backgroundColor: secondaryColor,
 				data: [60, 80, 120, 70, 180, 150, 70],
 			},
 			
 			{
 				label: 'Phones',
-				backgroundColor: '#76B1BE',
+				backgroundColor: tertiaryColor,
 				data: [80, 20, 40, 80, 80, 70, 90],
 			}
 
 		]
-}
+};
 
 var trafficDailyOptions = {
 	legend: {
@@ -522,7 +629,7 @@ var trafficDailyOptions = {
 			}
 		}]
 	}
-}
+};
 
 var trafficDailyChart = new Chart(trafficDaily, {
 	type: 'bar',
@@ -531,108 +638,11 @@ var trafficDailyChart = new Chart(trafficDaily, {
 });
 
 
-// Main Navigation
-var navButton = document.getElementsByClassName("nav-icon");
-var dashboardIcon = document.getElementById("dashboard-icon");
-var membersIcon = document.getElementById("members-icon");
-var visitsIcon = document.getElementById("visits-icon");
-var settingsIcon = document.getElementById("settings-icon");
+// ***************************
+// ***** TRAFFIC WIDGET *****
+// ***************************
 
-function toggleNavActive() {
-	
-	for (var i=0; i<navButton.length; i++){
-		if (navButton[i].classList.contains("nav-icon-active")) {
-			navButton[i].classList.remove("nav-icon-active");
-		}
-	}
-
-	for (var i=0; i<navButton.length; i++){
-		if (navButton[i].parentNode.classList.contains("nav-container-active")) {
-			navButton[i].parentNode.classList.remove("nav-container-active");
-		}
-	}
-	this.classList.add("nav-icon-active");
-	this.parentNode.classList.add("nav-container-active");
-	
-	
-}
-
-dashboardIcon.addEventListener("click", toggleNavActive);
-membersIcon.addEventListener("click", toggleNavActive);
-visitsIcon.addEventListener("click", toggleNavActive);
-settingsIcon.addEventListener("click", toggleNavActive);
-
-// *** Alert Display ***
-
-// Variables for alert display
-var mainHeader = document.getElementById("main-header");
-
-//the alert dropdown container
-var alertDiv = document.createElement("div");
-
-//individual alerts in the dropdown
-var alertBox1 = document.createElement("div");
-var alertBox2 = document.createElement("div");
-
-var bellContainer = document.getElementById("bell-container");
-var bellIcon = document.getElementById("bell-icon");
-
-//contents for the sample alerts
-var alert1 = "Ashley Pike signed up";
-var alert2 = "Hart Love commented";
-
-//variables for green dot on bell icon
-var newNotification = true;
-
-function showDot() {
-	if (newNotification) {
-		bellContainer.classList.add("notification");
-	} else {
-		bellContainer.classList.remove("notification");
-	}
-}
-
-document.addEventListener("DOMContentLoaded", showDot);
-
-// set up alert div with two alert boxes inside
-// need to DRY this up with a loop? 
-
-function setupAlertDiv() {
-	alertDiv.setAttribute("id", "alert-div");
-
-	alertBox1.classList.add("alert-box");
-	alertBox1.textContent = alert1;
-	alertDiv.appendChild(alertBox1);
-
-	alertBox2.classList.add("alert-box");
-	alertBox2.textContent = alert2;
-	alertDiv.appendChild(alertBox2);
-}
-
-// insert alert div into main header before the bell container
-function dropAlertDiv() {
-	setupAlertDiv();
-	mainHeader.insertBefore(alertDiv, bellContainer);
-}
-
-// remove alert div from the main header
-function hideAlertDiv() {
-	mainHeader.removeChild(alertDiv);
-	newNotification = false;
-	showDot();
-}
-
-// event listeners for adding and removing the alert div
-bellIcon.addEventListener("click", dropAlertDiv);
-alertDiv.addEventListener("click", hideAlertDiv);
-
-//*** Alert Bar Cancel ***
-
-// variables for alert bar cancel
-var alertBar = document.getElementById('alert');
-var alertText = document.getElementById('alert-text');
-var alertX = document.getElementById('alert-x');
-
+// Traffic Variables
 
 var trafficLineButton = document.getElementsByClassName('traffic-line-button');
 var hourlyButton = document.getElementById('hourly-button');
@@ -640,7 +650,7 @@ var dailyButton = document.getElementById('daily-button');
 var weeklyButton = document.getElementById('weekly-button');
 var monthlyButton = document.getElementById('monthly-button');
 
-// Traffic Line Navigation
+// Traffic Navigation
 
 function toggleTrafficActive(btn) {
 	for (var i=0; i<trafficLineButton.length; i++){
@@ -651,7 +661,6 @@ function toggleTrafficActive(btn) {
 	btn.classList.add("traffic-active");
 	
 }
-
 
 // Traffic Line Chart
 
@@ -669,7 +678,7 @@ var dailyStepSize = 100;
 var dailyMax = 500; 
 
 var weeklyStepSize = 500;
-var weeklyMax = 2500
+var weeklyMax = 2500;
 
 var monthlyStepSize = 2000;
 var monthlyMax = 10000;
@@ -712,11 +721,11 @@ var trafficLineData = {
 		{
 			fill: true,
 			lineTension: 0,
-			backgroundColor: '#E2E3F5',
+			backgroundColor: primaryColorLight,
 			pointBackgroundColor: '#FFFFFF',
 			borderWidth: 1,
-			borderColor: '#7379BD',
-			pointBorderColor: '#7379BD',
+			borderColor: primaryColor,
+			pointBorderColor: primaryColor,
 			pointBorderWidth: 2,
 			pointRadius: 4,
 			pointHoverRadius: 10,
@@ -826,22 +835,6 @@ weeklyButton.addEventListener("click", weeklyTraffic);
 monthlyButton.addEventListener("click", monthlyTraffic);
 
 
-// transfer alert from bar to dropdown
-function moveAlert() {
-	alertBox3 = document.createElement("div");
-	alert3 = alertText.textContent;
-	alertBox3.classList.add("alert-box");
-	alertBox3.textContent = alert3;
-	alertDiv.appendChild(alertBox3);
-}
 
-// remove alert bar
-function hideAlert() {
-	moveAlert();
-	alertBar.style.display = "none";
-}
-
-//event listener for alert bar x
-alertX.addEventListener("click", hideAlert);
 
 
