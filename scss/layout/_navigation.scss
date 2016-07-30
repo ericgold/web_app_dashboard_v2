@@ -1,6 +1,5 @@
 #main-nav {
 	@include flexy(row);
-	//justify-content: flex-start;
 	height: 4em;
 	width: 100%;
 	background-color: $primary-dark;

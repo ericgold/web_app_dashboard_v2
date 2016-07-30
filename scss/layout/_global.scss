@@ -21,6 +21,7 @@
 	height: 100%;
 
 	@include mq(medium) {
+		-webkit-flex-direction: row;
 		flex-direction: row;
 		height: 100%;
 	}
