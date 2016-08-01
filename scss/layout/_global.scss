@@ -6,7 +6,7 @@
 
 .outer-container {
 	@include flexy(column);
-	max-width: 1024px;
+	max-width: 1920px;
 	margin: auto;
 	height: 100%;
 	font-family: $font-primary, sans-serif;

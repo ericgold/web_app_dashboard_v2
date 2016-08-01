@@ -31,6 +31,31 @@
 	}
 }
 
+.widget-section-flex {
+	@include flexy(column);
+	width: 100%;
+	margin: 0;
+
+	@include mq(medium) {
+		@include flexy(row);
+	}
+
+	@include mq(extra-large) {
+		width: 50%;
+		flex-wrap: wrap;
+	}
+}
+
+.widget-section-lower {
+	@include flexy(column);
+	width: 100%;
+	margin: 0;
+
+	@include mq(extra-large) {
+		@include flexy(row);
+	}
+}
+
 #subhead {
 	@include flexy(row);
 	width: 100%;
