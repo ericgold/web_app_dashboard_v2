@@ -254,6 +254,8 @@
     .widget-section-half {
       width: 50%; } }
 
+/* container for widgets pair groups that are (together) full width except at largest breakpoint
+where they are half (applies to bottom 4 widgets) */
 .widget-section-flex {
   display: -webkit-box;
   display: -moz-box;
@@ -278,6 +280,7 @@
       width: 50%;
       flex-wrap: wrap; } }
 
+/* wrapper for the bottom 4 widgets, allowing them to display in one line at largest breakpoint*/
 .widget-section-lower {
   display: -webkit-box;
   display: -moz-box;
@@ -511,14 +514,18 @@
 
 .member-action {
   display: inline;
-  color: #B2B2B2;
+  color: #7379BD;
   font-size: 0.5em;
+  line-height: 0.6em;
   margin: 0; }
 
 .member-action-time {
   color: #B2B2B2;
   font-size: 0.5em;
   margin: 0; }
+  @media (min-width: 1280px) {
+    .member-action-time {
+      display: inline-block; } }
 
 .activity-icon {
   margin-right: 1em; }
