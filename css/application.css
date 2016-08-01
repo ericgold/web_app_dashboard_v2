@@ -627,8 +627,7 @@
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  justify-content: space-around;
-  margin: auto; }
+  justify-content: space-around; }
   .social-stat-container .svg-container {
     margin: auto 1em auto 1em; }
   @media (min-width: 480px) {
@@ -655,18 +654,24 @@
   border: 1px solid #B2B2B2;
   border-radius: 3px;
   background-color: #FBFBFB;
-  padding: 1em;
+  padding: 1em 0.5em;
   margin: 0.5em 1em; }
   @media (min-width: 768px) {
     .social-unit {
       width: 30%; } }
+  @media (min-width: 1024px) {
+    .social-unit {
+      width: 25%; } }
+  @media (min-width: 1280px) {
+    .social-unit {
+      width: 14%; } }
 
 .social-count-container h4 {
   font-size: 0.75em;
   color: #7379BD;
   margin: 0; }
 .social-count-container p {
-  font-size: 2em;
+  font-size: 1.5em;
   color: #B2B2B2;
   font-weight: lighter;
   margin: 0; }
