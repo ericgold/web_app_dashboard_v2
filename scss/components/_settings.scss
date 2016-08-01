@@ -3,14 +3,14 @@
 }
 
 .switch-row {
-	@include flexy(row);
-	margin: 1.25em 0 1.25em 0;
+	@include flexy(row, center);
+	margin: 1.25em auto 1.25em auto;
 }
 
 .switch-ios.switch-light {
 	display: inline;
 	font-size: 0.75em;
-	width: 100%;
+	//width: 100%;
 
 	strong {
 		color: $gray;

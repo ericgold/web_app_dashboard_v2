@@ -20,6 +20,7 @@ $brkpoint-sm: 1px;
 $brkpoint-sm-md: 480px;
 $brkpoint-md: 768px;
 $brkpoint-lg: 1024px;
+$brkpoint-x-lg: 1280px;
 
 // Media Queries
 
@@ -42,6 +43,11 @@ $brkpoint-lg: 1024px;
 	}
 	@else if $break == "large" {
 		@media(min-width: $brkpoint-lg) {
+			@content;
+		}
+	}
+	@else if $break == "extra-large" {
+		@media(min-width: $brkpoint-x-lg) {
 			@content;
 		}
 	}

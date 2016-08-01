@@ -6,6 +6,10 @@
 	width: 100%;
 	height: 1em;
 
+	@include mq(large) {
+		margin: 0 auto;
+	}
+
 	button {
 		background-color: $text-color-light;
 		border: none;
@@ -27,6 +31,11 @@
 
 #traffic-line {
 	@extend %widget-spacing;
+	max-width: 1280px;
+
+	@include mq(large) {
+		margin: 0 auto;
+	}
 }
 
 
