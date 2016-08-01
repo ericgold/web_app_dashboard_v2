@@ -5,7 +5,6 @@
 .social-stat-container {
 	@include flexy(column);
 	justify-content: space-around;
-	margin: auto;
 	.svg-container {
 		@extend %svg-container;
 		margin: auto 1em auto 1em;
@@ -15,7 +14,6 @@
 		@include flexy(row);
 		flex-wrap: wrap;
 	}
-
 }
 
 .social-unit {
@@ -25,11 +23,17 @@
 	border: 1px solid $gray;
 	border-radius: 3px;
 	background-color: $gray-light;
-	padding: 1em;
+	padding: 1em 0.5em;
 	margin: 0.5em 1em;
 
 	@include mq(medium) {
 		width: 30%;
+	}
+	@include mq(large) {
+		width: 25%;
+	}
+	@include mq(extra-large) {
+		width: 14%;
 	}
 
 	
@@ -44,7 +48,7 @@
 	}
 
 	p {
-		font-size: 2em;
+		font-size: 1.5em;
 		color: $gray;
 		font-weight: lighter;
 		margin: 0;
