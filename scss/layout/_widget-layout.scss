@@ -31,6 +31,8 @@
 	}
 }
 
+/* container for widgets pair groups that are (together) full width except at largest breakpoint
+where they are half (applies to bottom 4 widgets) */
 .widget-section-flex {
 	@include flexy(column);
 	width: 100%;
@@ -46,6 +48,7 @@
 	}
 }
 
+/* wrapper for the bottom 4 widgets, allowing them to display in one line at largest breakpoint*/
 .widget-section-lower {
 	@include flexy(column);
 	width: 100%;
