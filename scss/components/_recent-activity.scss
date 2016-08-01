@@ -35,8 +35,9 @@
 
 .member-action {
 	display: inline;
-	color: $gray;
+	color: $primary-color;
 	font-size: 0.5em;
+	line-height: 0.6em;
 	margin: 0;
 }
 
@@ -44,6 +45,10 @@
 	color: $gray;
 	font-size: 0.5em;
 	margin: 0;
+
+	@include mq(extra-large) {
+		display: inline-block;
+	}
 }
 
 // Common styles for user, comment, and post icons
